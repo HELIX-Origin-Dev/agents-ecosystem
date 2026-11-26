@@ -1,16 +1,5 @@
 {
   "name": "helix-origin-agent-ecosystem",
-  "description": "Catalog-only Codex marketplace entries for real plugin packages in the agent ecosystem.",
-  "plugins": [
-    {
-      "name": "dynamic-context-manager",
-      "description": "Hardware-aware context status plugin; catalog entry for the GitHub Packages npm source.",
-      "source": {
-        "source": "npm",
-        "package": "@helix-origin-dev/dynamic-context-manager",
-        "version": "0.1.0",
-        "registry": "https://npm.pkg.github.com"
-      }
-    }
-  ]
+  "description": "Catalog-only Codex marketplace structure; no npm package sources are declared.",
+  "plugins": []
 }

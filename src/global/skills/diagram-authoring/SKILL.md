@@ -1,5 +1,5 @@
 ---
-name: diagram-authoring
+name: Diagram Authoring
 description: Create clear, maintainable diagrams that explain flow, structure, and state transitions.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: testing-strategy
+name: Testing Strategy
 description: Design a balanced test suite that gives confidence without slowing delivery.
 ---
 

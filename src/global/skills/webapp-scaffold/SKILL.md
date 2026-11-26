@@ -1,5 +1,5 @@
 ---
-name: webapp-scaffold
+name: Web App Scaffold
 description: Lay out a portable web application structure before choosing any framework or tooling.
 ---
 

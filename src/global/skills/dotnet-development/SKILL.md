@@ -1,5 +1,5 @@
 ---
-name: dotnet-development
+name: .NET Development
 description: Build .NET code with clear dependency boundaries and predictable configuration.
 ---
 

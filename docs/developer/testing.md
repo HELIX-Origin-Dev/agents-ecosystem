@@ -22,11 +22,12 @@ All dry-run commands must exit successfully without writing files or creating ba
 | Scope selection | `--scope`, `--global-agent`, and `--local-agent` resolve to exactly one scope per agent. |
 | Mixed scope | Per-agent assignments are independent and conflicts are rejected. |
 | Surfaces | Every agent reports its GUI and CLI surfaces, but each destination appears once. |
-| Exclusions | Credential-bearing paths and `packages/` are reported as excluded and never read, except `manifest/plugin-sources.json`. |
+| Exclusions | Credential-bearing paths and `packages/` are reported as excluded and never read. |
 | OpenCode boundary | `dynamic-context-manager` appears only for `opencode`; other agents receive native DCM fragments. |
 | DCM status | Current context is separate from cumulative tokens and cost; current state degrades to `unknown` rather than a cumulative total. |
 | DCM controls | Native compaction stays authoritative; no automatic compaction, duplicate summarizer, or UI responsiveness claim appears. |
 | Copilot fragments | Native under `COPILOT_HOME` or `.github/copilot/`; internal `config.json` is never a destination. |
+| Skill labels | OpenCode destinations retain Title Case labels; non-OpenCode destinations use lowercase kebab-case labels matching the parent skill directory. |
 | Antigravity rules | Generated rules include a valid YAML `trigger`. |
 | Cursor rules | Local rules use `.mdc` files; no global user-rule file is created. |
 | Collision planning | Existing files produce backup plus `skip`; with `--force`, backup plus `overwrite`. |

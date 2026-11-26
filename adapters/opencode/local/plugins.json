@@ -1,10 +1,9 @@
 {
   "cli": [],
   "gui": ["./gui-experimental"],
-  "localDirectories": ["./plugins/dynamic-context-manager"],
   "notes": [
     "CLI settings are global-only; no project-local cli.json is created.",
     "Desktop GUI plugins use the experimental ./gui-experimental export.",
-    "DCM is the hardware-aware dynamic-context-manager enhancement; native OpenCode compaction remains authoritative."
+    "DCM is installed only in the global plugins directory to avoid a duplicate local load."
   ]
 }

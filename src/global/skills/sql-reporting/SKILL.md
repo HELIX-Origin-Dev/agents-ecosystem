@@ -1,5 +1,5 @@
 ---
-name: sql-reporting
+name: SQL Reporting
 description: Produce trustworthy SQL reports with explicit filters, joins, and reconciliation.
 ---
 

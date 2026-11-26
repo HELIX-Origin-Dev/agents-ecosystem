@@ -1,5 +1,5 @@
 ---
-name: code-review
+name: Code Review
 description: Review changes systematically for correctness, maintainability, and risk before merging.
 ---
 

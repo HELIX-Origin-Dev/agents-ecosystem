@@ -28,12 +28,12 @@
     { "id": "secret-file", "pattern": "secret", "reason": "secret-bearing file" },
     { "id": "token-file", "pattern": "token", "reason": "token-bearing file" },
     { "id": "password-file", "pattern": "password", "reason": "password-bearing file" },
-    { "id": "unpublished-packages", "pattern": "(^|/)packages/", "reason": "unpublished placeholder package skeleton" }
+    { "id": "marketplace-catalogs", "pattern": "(^|/)packages/", "reason": "marketplace catalogs are research-only and never installed" }
   ],
   "notes": [
     "Exclusions are applied to logical source paths before any filesystem read.",
     "Patterns are matched case-insensitively.",
-    "The packages category is research-only and is never installed.",
+    "The packages category contains catalog structure only and is never installed.",
     "The repository contains no credential-bearing values."
   ]
 }

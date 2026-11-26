@@ -17,6 +17,7 @@
 # Research
 
 - [Research index](developer/research/README.md)
+- [Skill display labels](developer/research/skill-display-labels.md)
 - [Agent native ecosystem layouts](developer/research/agent-native-ecosystem-layouts.md)
 - [Portable capability scaffolds](developer/research/portable-capability-scaffolds.md)
 - [Dynamic Context Manager](developer/research/dynamic-context-manager.md)

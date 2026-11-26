@@ -1,5 +1,5 @@
 ---
-name: maven-workflow
+name: Maven Workflow
 description: Keep Maven projects modular with explicit dependencies and reproducible build phases.
 ---
 

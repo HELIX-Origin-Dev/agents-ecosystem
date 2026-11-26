@@ -1,5 +1,5 @@
 ---
-name: localization-workflow
+name: Localization Workflow
 description: Prepare text and interfaces for translation without embedding locale-specific assumptions.
 ---
 

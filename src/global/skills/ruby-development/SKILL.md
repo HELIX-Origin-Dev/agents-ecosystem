@@ -1,5 +1,5 @@
 ---
-name: ruby-development
+name: Ruby Development
 description: Build Ruby code with clear objects, explicit dependencies, and maintainable conventions.
 ---
 

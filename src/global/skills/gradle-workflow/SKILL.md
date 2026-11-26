@@ -1,5 +1,5 @@
 ---
-name: gradle-workflow
+name: Gradle Workflow
 description: Keep Gradle builds modular, readable, and free of host-specific assumptions.
 ---
 

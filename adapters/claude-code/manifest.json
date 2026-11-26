@@ -10,7 +10,7 @@
       "components": [
         { "id": "agents-md", "source": "src/global/instructions", "destination": "AGENTS.md", "transform": "agents-md" },
         { "id": "plugin-manifest", "source": "adapters/claude-code/global/plugin.json", "destination": "plugins/agent-ecosystem/.claude-plugin/plugin.json", "transform": "plugin-manifest" },
-        { "id": "skills", "source": "src/global/skills", "destination": "plugins/agent-ecosystem/skills", "transform": "copy" },
+        { "id": "skills", "source": "src/global/skills", "destination": "plugins/agent-ecosystem/skills", "transform": "skill-name" },
         { "id": "agents", "source": "src/global/agents", "destination": "plugins/agent-ecosystem/agents", "transform": "copy" },
         { "id": "commands", "source": "src/global/commands", "destination": "plugins/agent-ecosystem/commands", "transform": "copy" },
         { "id": "templates", "source": "src/global/templates", "destination": "plugins/agent-ecosystem/templates", "transform": "copy" }
@@ -21,7 +21,7 @@
       "components": [
         { "id": "agents-md", "source": "src/local/instructions", "destination": "AGENTS.md", "transform": "agents-md" },
         { "id": "plugin-manifest", "source": "adapters/claude-code/local/plugin.json", "destination": "plugins/agent-ecosystem/.claude-plugin/plugin.json", "transform": "plugin-manifest" },
-        { "id": "skills", "source": "src/local/skills", "destination": "plugins/agent-ecosystem/skills", "transform": "copy" },
+        { "id": "skills", "source": "src/local/skills", "destination": "plugins/agent-ecosystem/skills", "transform": "skill-name" },
         { "id": "agents", "source": "src/local/agents", "destination": "plugins/agent-ecosystem/agents", "transform": "copy" },
         { "id": "commands", "source": "src/local/commands", "destination": "plugins/agent-ecosystem/commands", "transform": "copy" },
         { "id": "templates", "source": "src/local/templates", "destination": "plugins/agent-ecosystem/templates", "transform": "copy" }

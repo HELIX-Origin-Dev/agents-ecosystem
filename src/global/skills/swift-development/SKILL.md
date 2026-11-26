@@ -1,5 +1,5 @@
 ---
-name: swift-development
+name: Swift Development
 description: Build Swift code with clear optionals, value semantics, and explicit concurrency.
 ---
 

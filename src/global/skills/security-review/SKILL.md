@@ -1,5 +1,5 @@
 ---
-name: security-review
+name: Security Review
 description: Assess changes for trust boundaries, input validation, and safe handling of sensitive data.
 ---
 

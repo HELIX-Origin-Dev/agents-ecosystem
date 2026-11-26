@@ -1,5 +1,5 @@
 ---
-name: container-workflow
+name: Container Workflow
 description: Define portable container builds and runs with explicit inputs and minimal images.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: debugging-workflow
+name: Debugging Workflow
 description: Diagnose failures methodically by forming and testing hypotheses from evidence.
 ---
 

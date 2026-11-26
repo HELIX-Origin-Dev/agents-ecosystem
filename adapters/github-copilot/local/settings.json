@@ -1,5 +1,4 @@
 {
-  // Project-local Copilot settings fragment. Personal overrides stay user-managed.
   "dcm": {
     "nativeCompaction": "authoritative"
   }

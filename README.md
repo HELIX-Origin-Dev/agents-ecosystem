@@ -89,8 +89,8 @@ flowchart LR
 - Credential-bearing files are excluded before any read or copy.
 - The OpenCode V2 DCM implementation (`dynamic-context-manager`) is emitted only for `opencode`; other agents receive native DCM fragments. Current context is reported separately from cumulative usage in [DCM research](docs/developer/research/dynamic-context-manager.md).
 - No absolute machine path is tracked in canonical config.
-- Publishing is limited to the explicitly approved GitHub Actions workflow for GitHub Package Registry; ordinary repository operations and installer dry-runs perform no remote operation or credential restore.
-- DCM package version `0.1.0` is approved; no product release, tag, or changelog release section exists until a release is declared.
+- DCM is copied directly from the canonical source tree into each agent's native adapter layout; the installer performs no npm package installation and no remote operation.
+- No npm package is published from this repository version; marketplace catalogs remain catalog-only and contain no active package sources.
 
 ## Contributing
 

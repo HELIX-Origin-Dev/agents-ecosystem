@@ -1,5 +1,5 @@
 ---
-name: nodejs-development
+name: Node.js Development
 description: Build and review Node.js code with attention to modules, async flow, and runtime boundaries.
 ---
 

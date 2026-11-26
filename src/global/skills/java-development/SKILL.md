@@ -1,5 +1,5 @@
 ---
-name: java-development
+name: Java Development
 description: Build Java code with clear contracts, explicit dependencies, and predictable lifecycle behavior.
 ---
 

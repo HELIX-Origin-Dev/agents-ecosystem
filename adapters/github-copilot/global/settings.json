@@ -1,5 +1,4 @@
 {
-  // Copilot CLI settings fragment. Existing files are backed up and skipped by default.
   "dcm": {
     "enabled": true,
     "nativeCompaction": "authoritative",

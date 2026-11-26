@@ -1,5 +1,5 @@
 ---
-name: git-workflow
+name: Git Workflow
 description: Organize changes into reviewable units with clear status checks and safe history practices.
 ---
 

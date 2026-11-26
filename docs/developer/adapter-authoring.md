@@ -45,7 +45,7 @@ adapters/<agent-id>/
 | `id` | string | Yes | Stable component identifier. |
 | `source` | string | Yes | Logical path under `src/` or `adapters/`. |
 | `destination` | string | Yes | Relative path under the scope root. |
-| `transform` | string | No | One of the transforms listed in [Architecture](architecture.md#transformations). Defaults to `copy`. |
+| `transform` | string | No | One of the transforms listed in [Architecture](architecture.md#transformations), including `skill-name` for agents that require lowercase skill identifiers. Defaults to `copy`. |
 | `when` | string | No | Conditional rule, such as `global-only`. |
 | `exclusiveTo` | string | No | Agent ID that may emit this component, used for OpenCode V2-only assets. |
 

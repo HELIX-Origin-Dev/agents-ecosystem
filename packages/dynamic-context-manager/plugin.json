@@ -1,8 +1,0 @@
-{
-  "name": "dynamic-context-manager",
-  "displayName": "DCM",
-  "description": "Hardware-aware dynamic context status plugin for OpenCode V2.",
-  "version": "0.1.0",
-  "sourceKind": "opencode-v2-plugin",
-  "marketplaceCatalogs": ["claude-code", "codex"]
-}

@@ -1,5 +1,5 @@
 ---
-name: cli-tool-design
+name: CLI Tool Design
 description: Design command-line tools with predictable arguments, clear output, and safe defaults.
 ---
 

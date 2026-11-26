@@ -1,5 +1,5 @@
 ---
-name: video-processing
+name: Video Processing
 description: Plan video encoding and review with clear deliverables and reproducible settings.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: performance-profiling
+name: Performance Profiling
 description: Measure, locate, and verify performance bottlenecks with evidence-led profiling.
 ---
 

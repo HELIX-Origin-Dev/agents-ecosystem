@@ -10,6 +10,7 @@ This directory holds the canonical, reusable research for the portable agent eco
 | [Portable capability scaffolds](portable-capability-scaffolds.md) | Broad, generic, placeholder-only capability coverage and the canonical-source-to-adapter scaffold contract. | Adding capability scaffolds or reusing native fragment mappings. |
 | [Dynamic Context Manager](dynamic-context-manager.md) | DCM hardware-aware design, current-versus-cumulative status semantics, complete status surfaces, per-agent native context surfaces, and fragment boundaries. | Planning or changing context/companion behavior. |
 | [GitHub Copilot and GitHub Packages distribution](github-copilot-and-package-distribution.md) | Copilot native adapter locations and the support matrix for custom npm registries. | Adding Copilot fragments or package-distribution snippets. |
+| [Skill display labels](skill-display-labels.md) | Canonical Title Case labels, path-derived skill IDs, and per-agent installer casing. | Changing skill names, adding an adapter, or diagnosing label compatibility. |
 
 ## Research principles
 

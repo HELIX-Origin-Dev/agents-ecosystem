@@ -51,7 +51,7 @@ Run after every substantive edit in the current project.
 - [ ] Every explicit instruction path in config exists
 - [ ] Native V2 `compaction` is the only compaction mechanism
 - [ ] No DCP, `opencode-dcp`, `dcp` skill, DCP plugin option, or `prune` mechanism was introduced
-- [ ] Local DCM (`dynamic-context-manager`) adapters remain explicit-only
+- [ ] Installed global DCM (`dynamic-context-manager`) adapter remains explicit-only and is not duplicated project-locally
 - [ ] Git/gh mutations use `ask` permissions; read-only inspection remains allowed
 - [ ] No deprecated V1 fields (`permission`, `bash`, `task`, `temperature`, `tools`, `disable`, `maxSteps`)
 

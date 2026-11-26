@@ -33,7 +33,6 @@
         { "id": "agents", "source": "src/local/agents", "destination": "agents", "transform": "copy" },
         { "id": "commands", "source": "src/local/commands", "destination": "commands", "transform": "copy" },
         { "id": "templates", "source": "src/local/templates", "destination": "templates", "transform": "copy" },
-        { "id": "dynamic-context-manager", "source": "src/global/plugins/dynamic-context-manager", "destination": "plugins/dynamic-context-manager", "transform": "copy", "exclusiveTo": "opencode" },
         { "id": "plugin-manifest", "source": "adapters/opencode/local/plugins.json", "destination": "plugins/manifest.json", "transform": "copy" }
       ]
     }

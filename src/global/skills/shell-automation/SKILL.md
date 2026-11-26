@@ -1,5 +1,5 @@
 ---
-name: shell-automation
+name: Shell Automation
 description: Design portable shell workflows with explicit inputs, safe quoting, and predictable failure handling.
 ---
 

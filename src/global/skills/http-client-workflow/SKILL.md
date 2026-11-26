@@ -1,5 +1,5 @@
 ---
-name: http-client-workflow
+name: HTTP Client Workflow
 description: Exercise HTTP interfaces with clear request definitions and repeatable checks.
 ---
 

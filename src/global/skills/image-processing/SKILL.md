@@ -1,5 +1,5 @@
 ---
-name: image-processing
+name: Image Processing
 description: Plan image transformations with clear inputs, outputs, and quality checks.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: database-workflow
+name: Database Workflow
 description: Plan schema changes and data operations with backup, review, and recovery in mind.
 ---
 

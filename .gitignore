@@ -5,8 +5,7 @@ HANDOFF.md
 
 # Credential-bearing files
 service.json
-.env
-.env.*
+.env*
 *.cookie
 cookies*.txt
 cookies*.json

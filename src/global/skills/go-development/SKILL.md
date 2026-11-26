@@ -1,5 +1,5 @@
 ---
-name: go-development
+name: Go Development
 description: Build Go code with clear interfaces, explicit errors, and straightforward concurrency.
 ---
 

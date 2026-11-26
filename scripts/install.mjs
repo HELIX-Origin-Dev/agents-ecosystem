@@ -17,7 +17,6 @@ import { fileURLToPath } from "node:url"
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..")
 const ADAPTERS_DIR = join(REPO_ROOT, "adapters")
 const ASSETS_MANIFEST = join(REPO_ROOT, "manifest", "assets.json")
-const PLUGIN_SOURCES_MANIFEST = join(REPO_ROOT, "manifest", "plugin-sources.json")
 
 const HELP = `Portable agent ecosystem installer (dry-run safe)
 
@@ -34,14 +33,13 @@ Options:
   --local-agent <ids|all>    Explicit local-scope agent selection.
   --project <path>           Project root for local scope; default is cwd.
   --dry-run                  Print the plan only; never write or back up.
-  --force                    Overwrite existing files after backup.
+  --force                    Overwrite changed existing files after backup; unchanged files are skipped.
   --help                     Show this message.
 
 With no selection flags and an interactive terminal, a chooser is shown.
 Credential-bearing service configuration and package directories are excluded
-before any source read, scan, log, output, or copy. The plugin source
-catalog is read only from manifest/plugin-sources.json and printed as
-declarative metadata.`
+before any source read, scan, log, output, or copy. DCM is copied directly
+from the canonical source tree; no npm package installation is performed.`
 
 class InstallerError extends Error {}
 
@@ -224,31 +222,6 @@ async function loadAdapters() {
   return result
 }
 
-async function loadPluginSources() {
-  try {
-    const manifest = JSON.parse(await readFile(PLUGIN_SOURCES_MANIFEST, "utf8"))
-    return Array.isArray(manifest.plugins) ? manifest.plugins : []
-  } catch (error) {
-    if (error && error.code === "ENOENT") return []
-    throw error
-  }
-}
-
-function printPluginSourceSummary(plugins, dryRun) {
-  const prefix = dryRun ? "[dry-run]" : "[install]"
-  console.log(`${prefix} Plugin source catalog:`)
-  if (plugins.length === 0) {
-    console.log(`${prefix}   No plugin sources declared.`)
-    return
-  }
-  for (const plugin of plugins) {
-    const distribution = plugin.marketplaceDistributed ? "marketplace" : "native-only"
-    console.log(
-      `${prefix}   ${plugin.id}: ${plugin.packageName} [${plugin.sourceKind} -> ${plugin.futureSourceKind}, ${distribution}]`,
-    )
-  }
-}
-
 async function collectSourceFiles(logicalSource, patterns) {
   if (isExcluded(logicalSource, patterns)) return []
   const sourcePath = resolve(REPO_ROOT, logicalSource)
@@ -290,6 +263,36 @@ async function renderCombinedInstructions(logicalSource, patterns, style) {
     return `---\ndescription: Portable agent ecosystem instructions\n---\n\n${body}\n`
   }
   return `# Portable Agent Ecosystem Instructions\n\n${body}\n`
+}
+
+async function renderSkillName(sourcePath, relativePath) {
+  const content = await readFile(sourcePath, "utf8")
+  const segments = relativePath.split(/[\\/]+/)
+  if (segments[segments.length - 1].toLowerCase() !== "skill.md") {
+    return content
+  }
+  const skillId = segments[segments.length - 2]
+  if (!skillId) {
+    throw new InstallerError(`Skill has no parent directory: ${relativePath}`)
+  }
+  const frontmatter = content.match(/^(---\r?\n)([\s\S]*?)(\r?\n---(?:\r?\n|$))/)
+  if (!frontmatter) {
+    throw new InstallerError(`Skill frontmatter is missing: ${relativePath}`)
+  }
+  const prefix = frontmatter[1]
+  const body = frontmatter[2]
+  const updatedBody = body.replace(
+    /^([ \t]*name:[ \t]*)[^\r\n]*/m,
+    `$1${skillId}`,
+  )
+  if (updatedBody === body) {
+    throw new InstallerError(`Skill name field is missing: ${relativePath}`)
+  }
+  return (
+    content.slice(0, prefix.length) +
+    updatedBody +
+    content.slice(prefix.length + body.length)
+  )
 }
 
 async function buildPlan(options, selection, adapters, patterns) {
@@ -368,6 +371,20 @@ async function buildPlan(options, selection, adapters, patterns) {
             transform === "cursor-rule" ? "cursor" : "plain",
           )
           files = [{ absolute: null, destination, content, logicalSource: component.source }]
+        } else if (transform === "skill-name") {
+          const sources = await collectSourceFiles(component.source, patterns)
+          for (const source of sources) {
+            const target = source.relative
+              ? join(destination, source.relative)
+              : destination
+            assertInside(root.path, target, `${agentId} ${scope} destination`)
+            files.push({
+              absolute: null,
+              destination: target,
+              content: await renderSkillName(source.absolute, source.relative),
+              logicalSource: `${component.source}${source.relative ? `/${source.relative}` : ""}`,
+            })
+          }
         } else {
           const sources = await collectSourceFiles(component.source, patterns)
           for (const source of sources) {
@@ -385,7 +402,14 @@ async function buildPlan(options, selection, adapters, patterns) {
 
         for (const file of files) {
           const exists = await fileExists(file.destination)
-          const action = exists ? (options.force ? "backup+overwrite" : "backup+skip") : "create"
+          const unchanged = exists && (await destinationMatches(file.destination, file))
+          const action = unchanged
+            ? "unchanged"
+            : exists
+              ? options.force
+                ? "backup+overwrite"
+                : "backup+skip"
+              : "create"
           const destinationLabel =
             relative(root.path, file.destination).replace(/\\/g, "/") || "."
           plan.push({
@@ -416,6 +440,24 @@ async function fileExists(path) {
   }
 }
 
+async function destinationMatches(path, item) {
+  try {
+    if (item.content !== undefined) {
+      return (await readFile(path, "utf8")) === item.content
+    }
+    if (item.absolute) {
+      const [installed, source] = await Promise.all([
+        readFile(path),
+        readFile(item.absolute),
+      ])
+      return installed.equals(source)
+    }
+  } catch {
+    return false
+  }
+  return false
+}
+
 async function backupExisting(path) {
   const stamp = new Date().toISOString().replace(/[:.]/g, "-")
   let candidate = `${path}.agent-ecosystem.bak-${stamp}`
@@ -431,6 +473,7 @@ async function backupExisting(path) {
 async function applyPlan(plan, options) {
   for (const item of plan) {
     if (isExcluded(item.logicalSource, options.patterns)) continue
+    if (item.action === "unchanged") continue
     if (item.exists) {
       await backupExisting(item.destination)
       if (!options.force) continue
@@ -476,8 +519,6 @@ async function main() {
   const selection = hasSelection
     ? { agents: [], scope: "both" }
     : await chooseInteractively(available)
-  const pluginSources = await loadPluginSources()
-  printPluginSourceSummary(pluginSources, options.dryRun)
   const plan = await buildPlan(options, selection, adapters, patterns)
 
   printPlan(plan, options.dryRun)

@@ -1,5 +1,5 @@
 ---
-name: search-and-navigation
+name: Search and Navigation
 description: Locate files and symbols efficiently with layered searches and clear navigation notes.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: json-processing
+name: JSON Processing
 description: Inspect, transform, and validate JSON data with attention to shape and failure modes.
 ---
 

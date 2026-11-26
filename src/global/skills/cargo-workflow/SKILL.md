@@ -1,5 +1,5 @@
 ---
-name: cargo-workflow
+name: Cargo Workflow
 description: Manage Rust crates, manifests, and workspace layout with reproducible builds.
 ---
 

@@ -77,7 +77,7 @@ The canonical source tree uses agent-neutral units. Adapters translate these uni
 
 ### Agent Skills contract
 
-A skill directory is portable only when it contains `SKILL.md` with YAML frontmatter. The `name` value must match the directory name. Optional `scripts/`, `references/`, and `assets/` directories remain inside the skill folder. The installer preserves this structure verbatim.
+A skill directory is portable only when it contains `SKILL.md` with YAML frontmatter. The directory name is the stable skill ID; agents differ on whether `name` is a display label or a lowercase identifier. The installer preserves the structure and applies the supported `name` value per agent as defined in [Skill display labels](skill-display-labels.md). Optional `scripts/`, `references/`, and `assets/` directories remain inside the skill folder.
 
 ### `AGENTS.md` contract
 

@@ -1,5 +1,5 @@
 ---
-name: planning-and-handoff
+name: Planning and Handoff
 description: Capture durable state so work can resume safely in a later session or by another contributor.
 ---
 

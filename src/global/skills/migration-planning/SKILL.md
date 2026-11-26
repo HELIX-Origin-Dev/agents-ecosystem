@@ -1,5 +1,5 @@
 ---
-name: migration-planning
+name: Migration Planning
 description: Plan staged migrations that preserve behavior and allow a safe rollback.
 ---
 

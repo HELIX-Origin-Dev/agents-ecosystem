@@ -1,5 +1,5 @@
 ---
-name: npm-package-workflow
+name: NPM Package Workflow
 description: Manage JavaScript dependencies and scripts reproducibly without hardcoding machine details.
 ---
 

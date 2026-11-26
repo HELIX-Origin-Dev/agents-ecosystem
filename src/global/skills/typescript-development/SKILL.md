@@ -1,5 +1,5 @@
 ---
-name: typescript-development
+name: TypeScript Development
 description: Use the type system to express intent and catch integration errors before runtime.
 ---
 

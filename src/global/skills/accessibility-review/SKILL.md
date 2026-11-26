@@ -1,5 +1,5 @@
 ---
-name: accessibility-review
+name: Accessibility Review
 description: Check interfaces and documents for inclusive, perceivable, and operable behavior.
 ---
 

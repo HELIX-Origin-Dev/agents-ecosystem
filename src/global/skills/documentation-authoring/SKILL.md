@@ -1,5 +1,5 @@
 ---
-name: documentation-authoring
+name: Documentation Authoring
 description: Write maintainable documentation with one canonical home for each technical fact.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: python-development
+name: Python Development
 description: Build and review Python code with attention to clarity, typing, and environment isolation.
 ---
 

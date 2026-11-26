@@ -32,7 +32,7 @@ Official OpenCode V2 docs: <https://opencode.ai/docs/>. Fetch the relevant page 
 
 ## Compaction boundary
 
-Native V2 `compaction` is the only mechanism. Do not install, enable, or invoke `opencode-dcp`, the `dcp` skill, or any DCP plugin option. Do not add or invoke `prune`. The `dynamic-context-manager` (DCM) plugin is local and must not auto-compact or duplicate summarization.
+Native V2 `compaction` is the only mechanism. Do not install, enable, or invoke `opencode-dcp`, the `dcp` skill, or any DCP plugin option. Do not add or invoke `prune`. The `dynamic-context-manager` (DCM) plugin is loaded only from the global plugin directory and must not auto-compact or duplicate summarization.
 
 ## Git and shell
 

@@ -1,4 +1,0 @@
-# Unpublished placeholder npm configuration for GitHub Packages research.
-# Never commit a populated .npmrc. Authentication belongs in user-managed npm configuration.
-@namespace:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}

@@ -1,5 +1,5 @@
 ---
-name: research-workflow
+name: Research Workflow
 description: Gather authoritative evidence before making a design, configuration, or documentation decision.
 ---
 

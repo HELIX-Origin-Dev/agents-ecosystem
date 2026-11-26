@@ -1,5 +1,5 @@
 ---
-name: go-module-workflow
+name: Go Module Workflow
 description: Organize Go modules, dependencies, and build targets so checkouts stay portable.
 ---
 

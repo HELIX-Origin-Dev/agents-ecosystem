@@ -1,5 +1,5 @@
 ---
-name: audio-processing
+name: Audio Processing
 description: Plan audio conversion and editing with clear formats, levels, and review steps.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: data-processing
+name: Data Processing
 description: Build repeatable data pipelines with explicit schemas and validation at each stage.
 ---
 

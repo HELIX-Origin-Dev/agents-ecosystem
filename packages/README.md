@@ -1,28 +1,24 @@
 # Plugin Packages and Marketplace Catalogs
 
-This directory separates real, publishable plugin packages from marketplace catalog files. It is not a distribution channel for the repository itself.
+This directory preserves marketplace catalog structure for supported agents. No npm package is currently published from this repository.
 
-DCM (`dynamic-context-manager`) is the only real package. It is an OpenCode V2 plugin package at version `0.1.0` with server and TUI exports, a controlled `files` list, and a single `@opencode/plugin` dependency. The `codex-marketplace/` and `claude-code-marketplace/` directories are catalogs, not packages; they are never published.
+DCM (`dynamic-context-manager`) is installed directly from the canonical source tree into each agent's native adapter layout. OpenCode receives the DCM implementation files from `src/global/plugins/dynamic-context-manager`; other agents receive their native DCM fragments from their adapters. Desktop and CLI marketplace catalogs remain catalog-only and contain no active npm source entries.
 
-GitHub Packages support is documented only for Claude Code and Codex marketplace npm sources. OpenCode V2, GitHub Copilot CLI, Cursor, and Google Antigravity do not have an officially documented GitHub Packages plugin installation specification and must not be described as supported here. See [GitHub Copilot and GitHub Packages distribution](../docs/developer/research/github-copilot-and-package-distribution.md).
+GitHub Packages support was researched for Claude Code and Codex marketplace npm sources, but npm packaging is not used in this repository version. OpenCode V2, GitHub Copilot CLI, Cursor, and Google Antigravity do not have an officially documented GitHub Packages plugin installation specification and must not be described as supported here. See [GitHub Copilot and GitHub Packages distribution](../docs/developer/research/github-copilot-and-package-distribution.md).
 
 ## Policy
 
-- Only real plugin bundles receive a `package.json`; catalogs do not.
-- Package names use lowercase scoped names in the `@helix-origin-dev` namespace.
-- The registry is `https://npm.pkg.github.com`; the public npm registry is never used.
-- Versions are concrete before publication; DCM starts at `0.1.0`.
-- Repository metadata points to `HELIX-Origin-Dev/agents-ecosystem`.
-- A `package-lock.json` is kept for reproducible installation.
+- No directory under `packages/` contains a `package.json` in this repository version.
+- Marketplace catalogs may exist as structure only; they declare no package source until npm packaging is deliberately restored.
+- The installer excludes `packages/` before any source read, scan, log, output, or copy.
 - No credential value, webhook URL, environment value, username, password, or token is stored in tracked files.
-- Marketplace catalogs may reference npm sources with `package`, `version`, and HTTPS `registry` only for agents whose native formats document them.
+- Native adapter manifests remain the single source of truth for what the installer emits.
 
 ## Current contents
 
 | Path | Kind | Published |
 |---|---|---|
-| `dynamic-context-manager/` | Real OpenCode V2 plugin package | Yes, by release or manual dispatch |
-| `codex-marketplace/` | Codex marketplace catalog only | No |
-| `claude-code-marketplace/` | Claude Code marketplace catalog only | No |
+| `codex-marketplace/` | Codex marketplace catalog structure | No |
+| `claude-code-marketplace/` | Claude Code marketplace catalog structure | No |
 
-The declarative source catalog lives in `manifest/plugin-sources.json`. The installer reads that manifest for display only and never copies package directories. Publication automation is documented in [GitHub Copilot and GitHub Packages distribution](../docs/developer/research/github-copilot-and-package-distribution.md#publication-automation).
+DCM is emitted by the installer from `src/global/plugins/dynamic-context-manager` and the per-agent native fragments. No publication workflow or declarative npm source catalog is present.

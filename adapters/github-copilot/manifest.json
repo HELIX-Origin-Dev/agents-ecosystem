@@ -13,7 +13,7 @@
       "components": [
         { "id": "settings", "source": "adapters/github-copilot/global/settings.json", "destination": "settings.json", "transform": "copy" },
         { "id": "instructions", "source": "src/global/instructions", "destination": "instructions", "transform": "copy" },
-        { "id": "skills", "source": "src/global/skills", "destination": "skills", "transform": "copy" },
+        { "id": "skills", "source": "src/global/skills", "destination": "skills", "transform": "skill-name" },
         { "id": "agents", "source": "src/global/agents", "destination": "agents", "transform": "copy" },
         { "id": "prompts", "source": "src/global/commands", "destination": "prompts", "transform": "copy" },
         { "id": "hooks", "source": "adapters/github-copilot/global/hooks.json", "destination": "hooks/hooks.json", "transform": "copy" },
@@ -27,7 +27,7 @@
         { "id": "settings", "source": "adapters/github-copilot/local/settings.json", "destination": "settings.json", "transform": "copy" },
         { "id": "settings-local", "source": "adapters/github-copilot/local/settings.local.json", "destination": "settings.local.json", "transform": "copy" },
         { "id": "instructions", "source": "src/local/instructions", "destination": "instructions", "transform": "copy" },
-        { "id": "skills", "source": "src/local/skills", "destination": "skills", "transform": "copy" },
+        { "id": "skills", "source": "src/local/skills", "destination": "skills", "transform": "skill-name" },
         { "id": "agents", "source": "src/local/agents", "destination": "agents", "transform": "copy" },
         { "id": "prompts", "source": "src/local/commands", "destination": "prompts", "transform": "copy" },
         { "id": "hooks", "source": "adapters/github-copilot/local/hooks.json", "destination": "hooks/hooks.json", "transform": "copy" },

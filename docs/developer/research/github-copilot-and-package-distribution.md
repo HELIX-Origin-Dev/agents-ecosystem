@@ -62,45 +62,32 @@ flowchart TD
 | Cursor | Not claimed | No documented GitHub Packages plugin installation specification. |
 | Google Antigravity | Not claimed | No documented GitHub Packages plugin installation specification. |
 
-## Real package policy
+## Current package policy
 
-Only `packages/dynamic-context-manager/` is a publishable package. Its approved first version is `0.1.0` under `@helix-origin-dev/dynamic-context-manager`; marketplace catalogs remain catalog-only and are never published. Publication targets GitHub Package Registry only, as described in [Publication automation](#publication-automation). Tracked files and installer output must not contain:
+This repository version does not publish an npm package. DCM is copied directly from the canonical source tree into each agent's native adapter layout; the OpenCode V2 implementation files come from `src/global/plugins/dynamic-context-manager`. Marketplace catalogs remain structural catalogs and declare no active npm source. The GitHub Packages publication workflow and the declarative npm source catalog have been removed.
+
+The support matrix above records native capabilities researched from official sources. It is not a claim that this repository currently publishes a package for any agent. Tracked files and installer output must not contain:
 
 - tokens, credentials, webhook URLs, cookies, `.env` values, usernames, or passwords;
 - claims that unsupported agents can install from GitHub Packages;
 - install scripts that perform network operations;
 - unauthorized remote operations, tags, or release assignments.
 
-Authentication belongs in runner-local npm configuration using variable substitution and registry-scoped auth keys; no secret value belongs in tracked files or installer output.
+## Publication boundary
 
-## Publication automation
-
-The repository publishes real plugin packages with `.github/workflows/publish-packages.yml`. The workflow runs on a published GitHub Release or manual dispatch; ordinary pushes never publish. It discovers only directories under `packages/` that contain a non-private `package.json`, so marketplace catalogs and directories without a package manifest are skipped.
-
-| Stage | Behavior | Boundary |
-|---|---|---|
-| Discover | Validate lowercase scoped name, concrete version, GitHub Packages `publishConfig.registry`, repository metadata, and `package-lock.json`. | No write and no network. |
-| Prepare | Install from the lockfile, run tests when present, and verify package contents with `npm pack --dry-run`. | No publish. |
-| Authenticate | Write a runner-local `.npmrc` from the repository-associated `GITHUB_TOKEN`. | No stored credential and no `NODE_AUTH_TOKEN`. |
-| Publish | Run `npm publish` against GitHub Package Registry only. | No public npm registry publication. |
+No publication automation is present. The installer reads no package manifest, performs no `npm install` or `npm publish`, and excludes `packages/` before any source read, scan, log, output, or copy. Native adapter manifests are the only source of installed files. If npm packaging is deliberately restored later, it must be re-approved separately and limited to GitHub Package Registry at `https://npm.pkg.github.com`; public npm publishing remains prohibited.
 
 ```mermaid
 flowchart LR
-  T{Release published or manual dispatch} --> D[Discover eligible packages]
-  D --> V[Validate package metadata and lockfile]
-  V --> P[Install and dry-run pack]
-  P --> A[Write runner-local npm auth]
-  A --> G[Publish to GitHub Packages]
-  V -->|catalog or private package| S[Skip]
+  S[Canonical source tree] --> I[Installer]
+  I --> O[OpenCode global plugin directory]
+  I --> N[Native fragments for other agents]
+  I -.->|excluded| P[packages/ marketplace catalogs]
 ```
-
-Authentication uses `contents: read` for discovery and `packages: write` only in the publish job. The workflow uses first-party actions, a non-cancelling concurrency group, and `fail-fast: false`. A published name/version pair is immutable on GitHub Packages, so republishing the same version fails rather than overwriting it.
-
-DCM version `0.1.0` is the first package version. No GitHub Release, tag, or changelog release section is created by the workflow or this documentation change.
 
 ## Verification
 
 - Confirm every Copilot fragment uses a documented native location.
 - Confirm Copilot `config.json` is never an installer destination.
-- Confirm GitHub Packages is claimed only for Claude Code and Codex marketplace sources.
-- Confirm package skeleton values are placeholders and contain no secrets or network commands.
+- Confirm no marketplace catalog declares an npm package source.
+- Confirm no tracked file claims that npm packaging is active.

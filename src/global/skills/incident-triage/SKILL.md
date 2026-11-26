@@ -1,5 +1,5 @@
 ---
-name: incident-triage
+name: Incident Triage
 description: Assess and coordinate a production incident from detection through stabilization.
 ---
 

@@ -6,6 +6,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-26
+
+### Added
+
+- Canonical skill display labels use polished Title Case; non-OpenCode adapters emit lowercase kebab-case `name` values from the parent skill directory.
+- The installer skips unchanged files on force runs instead of rewriting them.
+
+### Changed
+
+- DCM is copied directly from the canonical source tree into agent-native layouts; no npm package installation is performed.
+- OpenCode receives DCM only in the global plugin directory to prevent a duplicate local plugin load.
+- Marketplace catalogs are retained as structure only and declare no active npm package source.
+- Plugin source documentation now describes direct source installation and the GitHub Packages research boundary.
+
+### Breaking
+
+- The npm install path and GitHub Packages publication are no longer supported; consumers must install from canonical source with the cross-platform installer.
+- Automation that depended on the declarative npm plugin source catalog or the publishable DCM package must be removed or rewritten to use direct source installation.
+
+### Removed
+
+- DCM npm package metadata and lockfile.
+- GitHub Packages publication workflow and Dependabot npm package entry.
+- Declarative npm plugin source catalog.
+- `.npmrc.example`.
+
+### Fixed
+
+- Duplicate DCM plugin discovery from the project-local OpenCode plugin directory.
+- Unchanged-file backup churn during repeated force installs.
+
 ## [0.1.0] - 2026-11-26
 
 ### Added

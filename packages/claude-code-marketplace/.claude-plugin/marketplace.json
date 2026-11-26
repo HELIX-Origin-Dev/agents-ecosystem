@@ -3,16 +3,5 @@
   "owner": {
     "name": "HELIX Origin"
   },
-  "plugins": [
-    {
-      "name": "dynamic-context-manager",
-      "description": "Hardware-aware context status plugin; catalog entry for the GitHub Packages npm source.",
-      "source": {
-        "source": "npm",
-        "package": "@helix-origin-dev/dynamic-context-manager",
-        "version": "0.1.0",
-        "registry": "https://npm.pkg.github.com"
-      }
-    }
-  ]
+  "plugins": []
 }

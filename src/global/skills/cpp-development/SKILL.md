@@ -1,5 +1,5 @@
 ---
-name: cpp-development
+name: C++ Development
 description: Build C++ code with explicit ownership, well-defined interfaces, and careful resource handling.
 ---
 

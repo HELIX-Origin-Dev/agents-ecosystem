@@ -1,5 +1,5 @@
 ---
-name: context-management
+name: Context Management
 description: Use DCM (dynamic-context-manager) adapters for hardware-aware context visibility, current-versus-cumulative status, and native compaction workflows across supported agents
 ---
 

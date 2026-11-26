@@ -107,7 +107,8 @@ Not every canonical unit is copied verbatim.
 
 | Transform | Output | Used by |
 |---|---|---|
-| `copy` | Byte-for-byte copy of a source file or directory. | Skills, agents, commands, templates, OpenCode config and plugin. |
+| `copy` | Byte-for-byte copy of a source file or directory. | OpenCode skills, agents, commands, templates, OpenCode config and plugin. |
+| `skill-name` | Rewrites `SKILL.md` frontmatter `name` to the parent directory name for agents that require lowercase identifiers. | Non-OpenCode skill components. |
 | `opencode-config` | Substitutes install-time path variables in OpenCode config. | OpenCode global and local config. |
 | `agents-md` | Concatenates canonical instructions into one portable `AGENTS.md`. | Claude Code and Codex. |
 | `cursor-rule` | Generates a `.mdc` rule from an instruction file. | Cursor local scope. |

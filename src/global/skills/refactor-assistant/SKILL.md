@@ -1,5 +1,5 @@
 ---
-name: refactor-assistant
+name: Refactor Assistant
 description: Plan and execute behavior-preserving code restructuring with clear safety checks.
 ---
 

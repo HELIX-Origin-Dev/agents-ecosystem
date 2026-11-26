@@ -1,5 +1,5 @@
 ---
-name: python-package-workflow
+name: Python Package Workflow
 description: Structure Python packages and declare dependencies so environments stay reproducible.
 ---
 

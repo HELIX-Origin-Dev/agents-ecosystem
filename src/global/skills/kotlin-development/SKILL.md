@@ -1,5 +1,5 @@
 ---
-name: kotlin-development
+name: Kotlin Development
 description: Build Kotlin code with expressive types, safe null handling, and clear coroutine boundaries.
 ---
 

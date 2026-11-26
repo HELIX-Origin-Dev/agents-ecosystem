@@ -44,7 +44,7 @@ Canonical assets stay agent-neutral. Adapter fragments add the frontmatter, file
 
 ## Skill scaffold contract
 
-A portable skill is a directory with a required `SKILL.md` that carries `name` and `description` frontmatter. The folder name matches the `name` value. Optional `scripts/`, `references/`, and `assets/` directories hold executable examples, canonical links, and reusable resources.
+A portable skill is a directory with a required `SKILL.md` that carries `name` and `description` frontmatter. The folder name is the stable skill ID; canonical `name` labels use OpenCode's supported Title Case, and the installer emits agent-supported values as described in [Skill display labels](skill-display-labels.md). Optional `scripts/`, `references/`, and `assets/` directories hold executable examples, canonical links, and reusable resources.
 
 | Directory | Purpose | Repository policy |
 |---|---|---|

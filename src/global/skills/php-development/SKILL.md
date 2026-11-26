@@ -1,5 +1,5 @@
 ---
-name: php-development
+name: PHP Development
 description: Build PHP code with explicit dependencies, validated input, and clear request boundaries.
 ---
 

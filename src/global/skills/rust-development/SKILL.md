@@ -1,5 +1,5 @@
 ---
-name: rust-development
+name: Rust Development
 description: Build Rust code that uses ownership and error types to make invalid states unrepresentable.
 ---
 
