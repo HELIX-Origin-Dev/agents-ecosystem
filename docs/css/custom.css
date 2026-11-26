@@ -1,5 +1,10 @@
 :root {
   --content-max-width: 1100px;
+  --page-padding: 24px;
+}
+
+.content {
+  padding: 12px 5px 50px;
 }
 
 .content main {
@@ -71,6 +76,15 @@
   height: auto;
 }
 
+.content .mermaid {
+  text-align: center;
+}
+
+.content .mermaid svg {
+  display: block;
+  margin-inline: auto;
+}
+
 .content pre {
   max-width: 100%;
   overflow-x: auto;
@@ -93,11 +107,11 @@
 
 @media only screen and (max-width: 620px) {
   :root {
-    --page-padding: 10px;
+    --page-padding: 12px;
   }
 
   .content {
-    padding: 0 10px 40px;
+    padding: 8px 10px 40px;
   }
 
   .content table th,
