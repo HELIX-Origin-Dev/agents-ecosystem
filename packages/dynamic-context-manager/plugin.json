@@ -1,9 +1,8 @@
 {
   "name": "dynamic-context-manager",
   "displayName": "DCM",
-  "description": "Unpublished placeholder plugin skeleton for hardware-aware native context enhancement.",
-  "version": "0.0.0",
-  "distribution": "native-plugin-with-placeholder-marketplace-metadata",
-  "marketplaceAgents": ["claude-code", "codex"],
-  "components": []
+  "description": "Hardware-aware dynamic context status plugin for OpenCode V2.",
+  "version": "0.1.0",
+  "sourceKind": "opencode-v2-plugin",
+  "marketplaceCatalogs": ["claude-code", "codex"]
 }

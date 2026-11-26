@@ -25,7 +25,7 @@ Repository-level decisions and source links live in [GitHub repository foundatio
 | DCM semantics | Complete | Current context is a newest-completed-step estimate or `unknown`; cumulative tokens and cost remain separate lifetime accounting. Native compaction remains authoritative. | Preserve the boundaries documented in [DCM research](docs/developer/research/dynamic-context-manager.md). |
 | Documentation publication | In progress | Theme, custom-domain file, Gemfile, and documentation landing page are tracked. | The repository owner performs the GitHub Pages publishing-source, custom-domain, DNS, and Cloudflare settings outside this repository. |
 | Adapter and manifest maturity | Planned | Keep per-agent native fragments authoritative and expand coverage only from verified official layouts. | Research each new destination before changing a manifest; add dry-run coverage per adapter. |
-| Package readiness | Planned | Each future actual plugin is represented as its own private, unpublished, GitHub Packages-compatible skeleton. DCM is currently the only actual plugin/package. | Publish nothing; request explicit approval before any registry or release action. |
+| Package readiness | In progress | DCM is the only publishable package at `@helix-origin-dev/dynamic-context-manager@0.1.0`; marketplace catalogs remain catalog-only. | Publish only through the approved GitHub Package Registry workflow after explicit release or manual-dispatch approval. |
 | Community workflow | Planned | Maintain issue forms, pull request template, support paths, and changelog hygiene as the repository grows. | Link policy decisions to canonical research instead of duplicating them. |
 | Release proposal | Deferred | A SemVer proposal is prepared only when the user declares a release. | Keep all notes under `Unreleased` until that declaration exists. |
 
@@ -50,7 +50,7 @@ flowchart LR
 - `service.json` and all credential-bearing files are excluded before any read, copy, log, or output.
 - Docs use canonical links, GFM, ISO dates, placeholders only, and no machine-specific absolute paths.
 - GitHub Packages claims remain limited to the support matrix in [GitHub Copilot and package distribution](docs/developer/research/github-copilot-and-package-distribution.md).
-- No package publication, release, tag, or product version is implied by this roadmap.
+- This roadmap implies no release tag or product version; DCM `0.1.0` is the approved package manifest version only, and publication remains limited to the GitHub Package Registry workflow.
 
 ## Documentation
 

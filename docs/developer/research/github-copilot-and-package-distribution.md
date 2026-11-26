@@ -62,17 +62,41 @@ flowchart TD
 | Cursor | Not claimed | No documented GitHub Packages plugin installation specification. |
 | Google Antigravity | Not claimed | No documented GitHub Packages plugin installation specification. |
 
-## Placeholder package policy
+## Real package policy
 
-The repository may contain an unpublished skeleton with placeholder scoped names such as `@NAMESPACE/PACKAGE-NAME` and the documented public registry URL `https://npm.pkg.github.com`. It must not contain:
+Only `packages/dynamic-context-manager/` is a publishable package. Its approved first version is `0.1.0` under `@helix-origin-dev/dynamic-context-manager`; marketplace catalogs remain catalog-only and are never published. Publication targets GitHub Package Registry only, as described in [Publication automation](#publication-automation). Tracked files and installer output must not contain:
 
 - tokens, credentials, webhook URLs, cookies, `.env` values, usernames, or passwords;
-- a real namespace or published package version;
-- install scripts that perform network operations;
 - claims that unsupported agents can install from GitHub Packages;
-- remote operations, tags, publishing commands, or release assignments.
+- install scripts that perform network operations;
+- unauthorized remote operations, tags, or release assignments.
 
-Authentication belongs in user-managed npm configuration using variable substitution and registry-scoped auth keys; no secret value belongs in tracked files or installer output.
+Authentication belongs in runner-local npm configuration using variable substitution and registry-scoped auth keys; no secret value belongs in tracked files or installer output.
+
+## Publication automation
+
+The repository publishes real plugin packages with `.github/workflows/publish-packages.yml`. The workflow runs on a published GitHub Release or manual dispatch; ordinary pushes never publish. It discovers only directories under `packages/` that contain a non-private `package.json`, so marketplace catalogs and directories without a package manifest are skipped.
+
+| Stage | Behavior | Boundary |
+|---|---|---|
+| Discover | Validate lowercase scoped name, concrete version, GitHub Packages `publishConfig.registry`, repository metadata, and `package-lock.json`. | No write and no network. |
+| Prepare | Install from the lockfile, run tests when present, and verify package contents with `npm pack --dry-run`. | No publish. |
+| Authenticate | Write a runner-local `.npmrc` from the repository-associated `GITHUB_TOKEN`. | No stored credential and no `NODE_AUTH_TOKEN`. |
+| Publish | Run `npm publish` against GitHub Package Registry only. | No public npm registry publication. |
+
+```mermaid
+flowchart LR
+  T{Release published or manual dispatch} --> D[Discover eligible packages]
+  D --> V[Validate package metadata and lockfile]
+  V --> P[Install and dry-run pack]
+  P --> A[Write runner-local npm auth]
+  A --> G[Publish to GitHub Packages]
+  V -->|catalog or private package| S[Skip]
+```
+
+Authentication uses `contents: read` for discovery and `packages: write` only in the publish job. The workflow uses first-party actions, a non-cancelling concurrency group, and `fail-fast: false`. A published name/version pair is immutable on GitHub Packages, so republishing the same version fails rather than overwriting it.
+
+DCM version `0.1.0` is the first package version. No GitHub Release, tag, or changelog release section is created by the workflow or this documentation change.
 
 ## Verification
 

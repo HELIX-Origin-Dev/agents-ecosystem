@@ -22,7 +22,7 @@ This module is the single source of truth for repository-level files, community 
 | 11 | https://keepachangelog.com/en/1.1.0/ | 2026-11-25 | Changelogs use an `Unreleased` section, grouped change types, ISO dates, and no invented release versions. |
 | 12 | https://www.contributor-covenant.org/version/2/1/code_of_conduct/ | 2026-11-25 | Contributor Covenant v2.1 full text and enforcement guideline levels. |
 | 13 | https://opensource.org/license/mit | 2026-11-25 | MIT License text and permissive terms. |
-| 14 | https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site | 2026-11-25 | GitHub Pages can publish from a branch, including `/docs`, and branch publishing stores the custom domain in a root `CNAME` file. |
+| 14 | https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site | 2026-11-25 | GitHub Pages supports branch publishing and custom GitHub Actions workflows; Actions publication requires selecting **GitHub Actions** as the publishing source; a repository `CNAME` does not automatically add or remove a custom-domain setting. |
 | 15 | https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site | 2026-11-25 | Subdomains use a CNAME to the GitHub Pages domain; GitHub recommends adding the custom domain in settings before DNS. |
 | 16 | https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https | 2026-11-25 | GitHub Pages supports HTTPS and enforcement for correctly configured custom domains; incorrect DNS can block certificate issuance. |
 | 17 | https://just-the-docs.github.io/just-the-docs/docs/configuration/ | 2026-11-25 | `just-the-docs` supports documentation navigation, search, auxiliary links, GitHub edit links, and Mermaid configuration. |
@@ -30,6 +30,12 @@ This module is the single source of truth for repository-level files, community 
 | 19 | https://developers.cloudflare.com/ssl/origin-configuration/ssl-modes/ | 2026-11-25 | Cloudflare SSL modes are Off, Flexible, Full, and Full (strict); Full (strict) validates the origin certificate. |
 | 20 | https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement | 2026-11-25 | GitHub processes platform data under its own privacy statement. |
 | 21 | https://www.cloudflare.com/privacypolicy/ | 2026-11-25 | Cloudflare processes customer-property interaction and traffic routing data under its own privacy policy. |
+| 22 | https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages | 2026-11-25 | Documents first-party Jekyll Pages build/deploy actions and least-privilege deploy permissions. |
+| 23 | https://docs.github.com/en/code-security/reference/code-scanning/workflow-configuration-options | 2026-11-25 | CodeQL workflow triggers, language matrix, and security-events upload permission. |
+| 24 | https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference | 2026-11-25 | Dependabot `version: 2` configuration and supported package ecosystems. |
+| 25 | https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-dependency-review-action | 2026-11-25 | Minimal pull-request dependency review workflow with read-only permissions. |
+| 26 | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners | 2026-11-25 | `CODEOWNERS` organization team syntax, visibility, and write-access requirements. |
+| 27 | https://docs.github.com/en/actions/reference/security/secure-use | 2026-11-25 | Least-privilege token permissions and protection of workflow files. |
 
 ## Approved root file set
 
@@ -78,27 +84,48 @@ flowchart LR
 
 ## Documentation publication
 
-The approved documentation source is the repository's `docs/` directory with `just-the-docs` as a remote Jekyll theme. The tracked `docs/CNAME` file names `HELIX-Origin-Dev.github.io`, and the intended custom domain is `agents-ecosystem.helix-origin.club`.
+The approved documentation source is the repository's `docs/` directory with `just-the-docs` as a remote Jekyll theme. Publication uses a GitHub Actions workflow, not branch publishing. The tracked `docs/CNAME` file names `HELIX-Origin-Dev.github.io`, and the intended custom domain is `agents-ecosystem.helix-origin.club`; the file does not by itself add or remove the GitHub Pages custom-domain setting.
 
 | Decision | Repository-side representation | Owner-side work |
 |---|---|---|
-| Publishing source | Markdown and Jekyll files under `docs/`. | Select `/docs` as the GitHub Pages publishing source. |
-| Theme | `remote_theme` and `jekyll-remote-theme` in `docs/_config.yml` and `docs/Gemfile`. | None beyond allowing GitHub Pages to build the source. |
+| Publishing source | Markdown and Jekyll files under `docs/`, built by `.github/workflows/pages.yml` and deployed through `actions/deploy-pages@v4`. | Select **GitHub Actions** as the GitHub Pages publishing source. |
+| Theme | `remote_theme` and `jekyll-remote-theme` in `docs/_config.yml` and `docs/Gemfile`. | None beyond allowing GitHub Actions to build the source. |
 | Custom domain | `docs/CNAME`. | Add the custom domain in repository settings, verify the organization domain, and create the DNS record. |
 | HTTPS | No proxy mode or SSL mode is encoded in tracked files. | Route the domain through Cloudflare as chosen by the owner and ensure certificate issuance is not blocked. |
 | Analytics | No analytics or tracking configuration is included. | None. |
 
 ```mermaid
 flowchart LR
-  S[Tracked docs source] --> B[GitHub Pages branch build from /docs]
-  C[docs/CNAME] --> D[Custom domain setting]
-  D --> DNS[Owner-managed DNS record]
+  S[Tracked docs source] --> W[Pages workflow builds ./docs]
+  W --> D[Deploy job with Pages permissions]
+  C[docs/CNAME] --> DS[Custom domain setting in repository settings]
+  DS --> DNS[Owner-managed DNS record]
   DNS --> CF[Cloudflare routing chosen by owner]
-  B --> SITE[Published documentation]
+  D --> SITE[Published documentation]
   CF --> SITE
 ```
 
 Cloudflare can proxy a CNAME but cannot proxy verification TXT records. Proxy status and SSL mode are outside this repository's control; the repository does not claim that a particular Cloudflare mode is active.
+
+## Repository automation
+
+The repository uses first-party GitHub Actions with least-privilege permissions. Workflow files are protected by `CODEOWNERS`.
+
+| File | Trigger | Purpose | Key permissions |
+|---|---|---|---|
+| `.github/workflows/pages.yml` | Push to `main`, manual dispatch | Build `./docs` with Jekyll and deploy the artifact to GitHub Pages. | `contents: read` for build; `pages: write` and `id-token: write` for deploy only. |
+| `.github/workflows/codeql.yml` | Push and pull request to `main`, weekly schedule | Analyze workflow YAML and TypeScript/JavaScript. | `contents: read`, `actions: read`, `packages: read`, `security-events: write`. |
+| `.github/workflows/dependency-review.yml` | Pull request | Report dependency changes in pull requests. | `contents: read`. |
+| `.github/dependabot.yml` | Weekly schedule | Check GitHub Actions, Bundler under `docs/`, and npm under the DCM package. | Dependabot-managed. |
+| `.github/workflows/publish-packages.yml` | Published release or manual dispatch | Validate and publish eligible packages to GitHub Package Registry only. | `contents: read` for discovery; `packages: write` for publish. |
+| `.github/CODEOWNERS` | Pull request review | Assign `@HELIX-Origin-Dev/maintainers` to all files and specifically protect `.github/`. | Org team must be visible with write access. |
+
+Automation boundaries:
+
+- No workflow uses `pull_request_target`, `write-all`, third-party actions, or an external configuration file.
+- Workflows use least-privilege permissions; the publish workflow references only the repository-associated `GITHUB_TOKEN` for runner-local GitHub Packages authentication. Owner-managed organization secrets, if added later, must follow least-privilege review.
+- Pages deployment requires the owner to select **GitHub Actions** as the publishing source in repository settings.
+- Dependency review is available for public repositories and runs on pull requests only.
 
 ## License decision
 

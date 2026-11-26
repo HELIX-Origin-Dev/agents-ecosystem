@@ -38,10 +38,10 @@ Options:
   --help                     Show this message.
 
 With no selection flags and an interactive terminal, a chooser is shown.
-Credential-bearing service configuration and unpublished package skeletons are
-excluded before any source read, scan, log, output, or copy. The plugin source
+Credential-bearing service configuration and package directories are excluded
+before any source read, scan, log, output, or copy. The plugin source
 catalog is read only from manifest/plugin-sources.json and printed as
-placeholder-only metadata.`
+declarative metadata.`
 
 class InstallerError extends Error {}
 
@@ -236,7 +236,7 @@ async function loadPluginSources() {
 
 function printPluginSourceSummary(plugins, dryRun) {
   const prefix = dryRun ? "[dry-run]" : "[install]"
-  console.log(`${prefix} Plugin source catalog (placeholder-only):`)
+  console.log(`${prefix} Plugin source catalog:`)
   if (plugins.length === 0) {
     console.log(`${prefix}   No plugin sources declared.`)
     return

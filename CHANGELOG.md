@@ -18,6 +18,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - GitHub-ready root files: `.gitignore`, README, changelog, contributing guide, code of conduct, security policy, support guide, license, issue forms, and pull request template.
 - Root roadmap and repository-scope privacy notice with links to canonical research and support paths.
 - GitHub Pages documentation source using `just-the-docs`, a custom-domain file, a Gemfile, and a documentation landing page.
+- Repository automation for GitHub Pages deployment, CodeQL analysis, dependency review, Dependabot updates, and CODEOWNERS review protection.
+- GitHub Actions workflow that prepares and publishes eligible plugin packages to GitHub Package Registry.
+- Real DCM plugin package at version `0.1.0` with OpenCode V2 server and TUI exports.
 
 ### Changed
 
@@ -25,6 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - DCM reports current context as a labeled last-completed-step estimate and keeps cumulative session tokens and cost separate as lifetime accounting.
 - DCM exposes a complete status view through `dcm.status`, `dcm.usage`, a TUI session panel, `/dcm-status`, and a conservative footer label.
 - README documentation links now include the published site, roadmap, privacy notice, and documentation source.
+- Package documentation now distinguishes the publishable DCM package from Claude Code and Codex marketplace catalogs.
 
 ### Fixed
 

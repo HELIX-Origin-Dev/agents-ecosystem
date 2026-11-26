@@ -1,13 +1,18 @@
-# Dynamic Context Manager package skeleton
+# Dynamic Context Manager
 
-This is an unpublished placeholder package for DCM (`dynamic-context-manager`, display name `DCM`). It contains no installed assets, no executable code, no scripts, no dependencies, and no credential values.
+`@helix-origin-dev/dynamic-context-manager` is the real OpenCode V2 plugin package for DCM (`dynamic-context-manager`, display name `DCM`). Version `0.1.0` is the initial package version.
 
-- Package name: `@namespace/dynamic-context-manager`
-- Version: `0.0.0` placeholder, not a product release
-- Native agent: OpenCode V2
-- Distribution: native OpenCode V2 plugin source plus placeholder marketplace metadata for Claude Code and Codex plugin bundles
-- Repository: placeholder under the future `helix-origin` organization
+DCM reports hardware-aware context status and keeps the current-step estimate separate from cumulative session token and cost totals. Native OpenCode compaction remains authoritative; DCM never auto-compacts, duplicates summarization, guarantees UI responsiveness, or replaces native `/compact`.
 
-DCM enhances each agent's native context behavior using hardware-derived guidance. Native compaction remains authoritative, and no UI responsiveness guarantee is claimed.
+## Package exports
 
-This plugin is cataloged in `manifest/plugin-sources.json`. The Claude Code and Codex marketplace snippets are placeholder-only and limited to documented plugin-bundle component types; no package is published and no install command is executed. GitHub Packages installation is not claimed for the native OpenCode adapter.
+| Export | Entry | Purpose |
+|---|---|---|
+| `.` | `index.ts` | Server plugin entry with DCM commands and hooks. |
+| `./tui` | `tui.tsx` | TUI status panel and footer label. |
+
+## Registry boundary
+
+Publication targets GitHub Package Registry at `https://npm.pkg.github.com` only. The publication workflow authenticates with a runner-local npm configuration generated from the repository-associated `GITHUB_TOKEN`; no credential value is stored in this package. Custom-registry plugin installation is not claimed for OpenCode V2.
+
+Claude Code and Codex marketplace files in this repository are catalogs, not packages. They are not published by the workflow. See [GitHub Copilot and GitHub Packages distribution](../../docs/developer/research/github-copilot-and-package-distribution.md#publication-automation).

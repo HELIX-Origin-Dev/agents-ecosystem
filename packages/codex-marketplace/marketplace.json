@@ -1,13 +1,14 @@
 {
-  "name": "agent-ecosystem-placeholder",
+  "name": "helix-origin-agent-ecosystem",
+  "description": "Catalog-only Codex marketplace entries for real plugin packages in the agent ecosystem.",
   "plugins": [
     {
       "name": "dynamic-context-manager",
-      "description": "Unpublished placeholder marketplace entry for the DCM plugin bundle; no package is published.",
+      "description": "Hardware-aware context status plugin; catalog entry for the GitHub Packages npm source.",
       "source": {
         "source": "npm",
-        "package": "@namespace/dynamic-context-manager",
-        "version": "0.0.0",
+        "package": "@helix-origin-dev/dynamic-context-manager",
+        "version": "0.1.0",
         "registry": "https://npm.pkg.github.com"
       }
     }

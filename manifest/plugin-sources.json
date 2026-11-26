@@ -1,26 +1,25 @@
 {
   "version": 1,
-  "description": "Placeholder-only declarative catalog of future plugin package sources. No package is published and no remote source is fetched.",
-  "namespacePlaceholder": "@namespace",
+  "description": "Declarative catalog of plugin package sources. No package is fetched by the installer.",
   "registry": "https://npm.pkg.github.com",
-  "futureOrganization": {
+  "organization": {
     "displayName": "HELIX Origin",
-    "slug": "helix-origin"
+    "slug": "helix-origin-dev"
   },
   "plugins": [
     {
       "id": "dynamic-context-manager",
       "displayName": "DCM",
-      "packageName": "@namespace/dynamic-context-manager",
+      "packageName": "@helix-origin-dev/dynamic-context-manager",
       "packageDirectory": "dynamic-context-manager",
-      "repository": "helix-origin/placeholder-dynamic-context-manager-repo",
-      "sourceKind": "local",
-      "futureSourceKind": "git",
+      "repository": "HELIX-Origin-Dev/agents-ecosystem",
+      "sourceKind": "local-package",
+      "futureSourceKind": "npm",
       "marketplaceDistributed": true,
       "marketplaceAgents": ["claude-code", "codex"],
       "notes": [
-        "Unpublished placeholder plugin bundle; no package is published and no install is executed.",
-        "Marketplace metadata is limited to the component types documented for Claude Code and Codex plugin bundles.",
+        "The DCM package is a real OpenCode V2 plugin package at version 0.1.0.",
+        "Marketplace catalogs are catalog-only and are not published packages.",
         "GitHub Packages installation is not claimed for the native OpenCode adapter."
       ]
     }

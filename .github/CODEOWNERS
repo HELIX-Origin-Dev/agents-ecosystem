@@ -1,0 +1,5 @@
+# Default owners for all repository files.
+* @HELIX-Origin-Dev/maintainers
+
+# Protect automation and repository configuration.
+/.github/ @HELIX-Origin-Dev/maintainers
