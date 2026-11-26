@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-11-26
+
 ### Added
 
 - Canonical global source tree with portable config templates, instructions, skills, agents, commands, templates, and the OpenCode V2-only plugin.
@@ -34,6 +36,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Documentation uses built-in mdBook themes with a two-tone Rust default, Navy dark theme, integrated search, syntax highlighting, and Mermaid rendering.
 - Documentation uses mdBook's native sidebar navigation, mobile menu, keyboard shortcuts, and default 750px content width.
 - Project documentation now contains only product-focused guides and research; site setup and repository-mechanics material is recorded outside the tracked docs.
+- GitHub Packages publication workflow uses Node 26 LTS and verified full-SHA action pins.
 
 ### Fixed
 
@@ -42,3 +45,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Security
 
 - Credential-bearing paths excluded before any installer read, copy, log, or output.
+- Transitive `glob` and `minimatch` advisories are remediated in the DCM lockfile.
