@@ -1,6 +1,6 @@
 # Architecture
 
-This repository keeps one canonical source of truth and renders it into native adapter layouts at install time. Native discovery paths and plugin rules are defined once in [Agent native ecosystem layouts](research/agent-native-ecosystem-layouts.md). DCM behavior is defined in [Dynamic Context Manager](research/dynamic-context-manager.md), and GitHub Copilot plus package-distribution limits are defined in [GitHub Copilot and GitHub Packages distribution](research/github-copilot-and-package-distribution.md).
+This repository keeps one canonical source of truth and renders it into native adapter layouts at install time. Native discovery paths and plugin rules are defined once in [Agent native ecosystem layouts](research/agent-native-ecosystem-layouts.md). DCM behavior is defined in [Dynamic Context Manager](research/dynamic-context-manager.md), and GitHub Copilot boundaries are defined in [GitHub Copilot native adapter](research/github-copilot-native-adapter.md).
 
 ## Goals
 
@@ -121,7 +121,7 @@ Surface lists are metadata. The installer never multiplies writes by surface cou
 
 The OpenCode GUI plugin is an exception in form, not in scope: it is declared in the same config family while using the experimental `./gui-experimental` export. It is still written once per selected OpenCode scope.
 
-GitHub Copilot uses native settings and fragment locations under `COPILOT_HOME` or `.github/copilot/`. Its internal `config.json` is a read-only source and is never an installer destination; see [GitHub Copilot and GitHub Packages distribution](research/github-copilot-and-package-distribution.md).
+GitHub Copilot uses native settings and fragment locations under `COPILOT_HOME` or `.github/copilot/`. Its internal `config.json` is a read-only source and is never an installer destination; see [GitHub Copilot native adapter](research/github-copilot-native-adapter.md).
 
 ## Safety model
 

@@ -21,4 +21,4 @@
 - [Agent native ecosystem layouts](developer/research/agent-native-ecosystem-layouts.md)
 - [Portable capability scaffolds](developer/research/portable-capability-scaffolds.md)
 - [Dynamic Context Manager](developer/research/dynamic-context-manager.md)
-- [GitHub Copilot and GitHub Packages distribution](developer/research/github-copilot-and-package-distribution.md)
+- [GitHub Copilot native adapter](developer/research/github-copilot-native-adapter.md)

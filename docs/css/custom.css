@@ -1,0 +1,124 @@
+:root {
+  --content-max-width: 1100px;
+}
+
+.content main {
+  overflow-wrap: anywhere;
+}
+
+.content main > p,
+.content main > ul,
+.content main > ol,
+.content main > blockquote,
+.content main > h1,
+.content main > h2,
+.content main > h3,
+.content main > h4,
+.content main > h5,
+.content main > h6 {
+  max-width: 78ch;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.content p,
+.content li,
+.content a,
+.content dl,
+.content dt,
+.content dd {
+  overflow-wrap: anywhere;
+}
+
+.table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.content table {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 1em;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+.content table th,
+.content table td {
+  padding: 6px 10px;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.content table th code,
+.content table td code,
+.content table th a,
+.content table td a {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.content img,
+.content video,
+.content svg,
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.content pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.content pre > code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.content :not(pre) > code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.sidebar .chapter li a,
+.menu-title {
+  overflow-wrap: anywhere;
+}
+
+@media only screen and (max-width: 620px) {
+  :root {
+    --page-padding: 10px;
+  }
+
+  .content {
+    padding: 0 10px 40px;
+  }
+
+  .content table th,
+  .content table td {
+    padding: 4px 6px;
+  }
+
+  .content pre > code {
+    padding: 0.75rem;
+  }
+
+  .content main > p,
+  .content main > ul,
+  .content main > ol,
+  .content main > blockquote,
+  .content main > h1,
+  .content main > h2,
+  .content main > h3,
+  .content main > h4,
+  .content main > h5,
+  .content main > h6 {
+    max-width: none;
+  }
+}

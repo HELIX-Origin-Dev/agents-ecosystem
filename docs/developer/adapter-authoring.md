@@ -1,6 +1,6 @@
 # Adapter Authoring
 
-An adapter translates canonical source units into one agent's native layout. Native paths, plugin formats, and surface-sharing rules are defined in [Agent native ecosystem layouts](research/agent-native-ecosystem-layouts.md). DCM boundaries are defined in [Dynamic Context Manager](research/dynamic-context-manager.md), and Copilot plus package limits are defined in [GitHub Copilot and GitHub Packages distribution](research/github-copilot-and-package-distribution.md).
+An adapter translates canonical source units into one agent's native layout. Native paths, plugin formats, and surface-sharing rules are defined in [Agent native ecosystem layouts](research/agent-native-ecosystem-layouts.md). DCM boundaries are defined in [Dynamic Context Manager](research/dynamic-context-manager.md), and Copilot fragment rules are defined in [GitHub Copilot native adapter](research/github-copilot-native-adapter.md).
 
 ## When to add an adapter
 

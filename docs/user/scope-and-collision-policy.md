@@ -1,6 +1,6 @@
 # Scope and Collision Policy
 
-This document explains how the installer chooses destinations and protects existing files. Native discovery paths are defined in [Agent native ecosystem layouts](../developer/research/agent-native-ecosystem-layouts.md). DCM boundary details are in [Dynamic Context Manager](../developer/research/dynamic-context-manager.md), and packaging limits are in [GitHub Copilot and package distribution](../developer/research/github-copilot-and-package-distribution.md).
+This document explains how the installer chooses destinations and protects existing files. Native discovery paths are defined in [Agent native ecosystem layouts](../developer/research/agent-native-ecosystem-layouts.md), and DCM boundary details are in [Dynamic Context Manager](../developer/research/dynamic-context-manager.md).
 
 ## Scope model
 

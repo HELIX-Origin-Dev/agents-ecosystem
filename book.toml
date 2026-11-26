@@ -20,6 +20,7 @@ cname = "agents-ecosystem.helix-origin.club"
 git-repository-url = "https://github.com/HELIX-Origin-Dev/agents-ecosystem"
 edit-url-template = "https://github.com/HELIX-Origin-Dev/agents-ecosystem/edit/main/{path}"
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
+additional-css = ["docs/css/custom.css"]
 
 [output.html.search]
 enable = true

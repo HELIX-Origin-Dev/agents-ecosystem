@@ -24,7 +24,6 @@ Contribution expectations are in [CONTRIBUTING.md](CONTRIBUTING.md).
 | Installer safety | Complete | Global, local, mixed, interactive, dry-run, force, backup, and skip behavior is defined; credential-bearing paths are excluded before read or copy. | Re-run dry-run checks after installer changes. |
 | DCM semantics | Complete | Current context is a newest-completed-step estimate or `unknown`; cumulative tokens and cost remain separate lifetime accounting. Native compaction remains authoritative. | Preserve the boundaries documented in [DCM research](docs/developer/research/dynamic-context-manager.md). |
 | Adapter and manifest maturity | Planned | Keep per-agent native fragments authoritative and expand coverage only from verified official layouts. | Research each new destination before changing a manifest; add dry-run coverage per adapter. |
-| Package readiness | Deferred | npm packaging, the publication workflow, and the npm source catalog were removed; all six native agent adapters remain intact. | Do not reintroduce npm packaging without a separate explicit decision and approval. |
 | Community workflow | Planned | Maintain issue forms, pull request template, support paths, and changelog hygiene as the repository grows. | Link policy decisions to canonical research instead of duplicating them. |
 | Release proposal | Deferred | A SemVer proposal is prepared only when the user declares a release. | Keep all notes under `Unreleased` until that declaration exists. |
 
@@ -33,9 +32,7 @@ flowchart LR
   F[Repository foundation] --> I[Installer safety]
   F --> D[DCM semantics]
   I --> A[Adapter and manifest maturity]
-  D --> K[Package readiness]
   A --> C[Community workflow]
-  K --> C
   C --> R[Release proposal after explicit declaration]
 ```
 
@@ -46,7 +43,6 @@ flowchart LR
 - Existing installed agent configuration is read-only for this project. Live installation and config writes are not authorized by the roadmap.
 - `service.json` and all credential-bearing files are excluded before any read, copy, log, or output.
 - Docs use canonical links, GFM, ISO dates, placeholders only, and no machine-specific absolute paths.
-- GitHub Packages claims remain limited to the research support matrix in [GitHub Copilot and package distribution](docs/developer/research/github-copilot-and-package-distribution.md); no npm package is published from this repository version.
 - This roadmap does not perform a release; any version bump, tag, or GitHub Release requires explicit action.
 
 ## Documentation

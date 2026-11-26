@@ -81,7 +81,7 @@ flowchart LR
 - [Adapter authoring](docs/developer/adapter-authoring.md)
 - [Testing](docs/developer/testing.md)
 - [Developer research index](docs/developer/research/README.md)
-- [GitHub Copilot and package distribution](docs/developer/research/github-copilot-and-package-distribution.md)
+- [GitHub Copilot native adapter](docs/developer/research/github-copilot-native-adapter.md)
 - [Dynamic Context Manager (DCM)](docs/developer/research/dynamic-context-manager.md)
 
 ## Safety boundaries
@@ -89,8 +89,7 @@ flowchart LR
 - Credential-bearing files are excluded before any read or copy.
 - The OpenCode V2 DCM implementation (`dynamic-context-manager`) is emitted only for `opencode`; other agents receive native DCM fragments. Current context is reported separately from cumulative usage in [DCM research](docs/developer/research/dynamic-context-manager.md).
 - No absolute machine path is tracked in canonical config.
-- DCM is copied directly from the canonical source tree into each agent's native adapter layout; the installer performs no npm package installation and no remote operation.
-- No npm package is published from this repository version; marketplace catalogs remain catalog-only and contain no active package sources.
+- DCM is copied directly from the canonical source tree into each agent's native adapter layout; the installer performs no remote operation.
 
 ## Contributing
 

@@ -136,7 +136,7 @@ A complete status view reports current context and its estimate source; matched 
 |---|---|---|
 | OpenCode V2 | Global config `compaction` values, session usage data, and TUI status slots. Keep the plugin directory under the OpenCode plugin path and preserve native auto/manual compaction. | CLI settings are global-only; relative config paths are preferred. |
 | Claude Code | Status-line JSON, model/auto-compact config, prompt-cache awareness, and `PreCompact`/`PostCompact` hooks. | One global tree and one project tree serve all surfaces; do not duplicate surface-specific config. |
-| Codex | Documented config keys and `PreCompact`/`PostCompact` hooks. | Do not emit unavailable experimental context-management keys. Registry marketplace snippets are documentation/fragment-only. |
+| Codex | Documented config keys and `PreCompact`/`PostCompact` hooks. | Do not emit unavailable experimental context-management keys. |
 | Cursor | `/summarize`, `/compress`, `preCompact` hooks, plugin roots, and CLI config. | Hook fragments must be valid JSON stdin/stdout commands; account for PowerShell on Windows desktop. |
 | Google Antigravity | `/context`, native `/compact`, CLI status-line JSON, and closed-schema plugin manifests. | Emit only fields allowed by the current schema. |
 | GitHub Copilot | Native settings JSONC, user/project instructions, agents, skills, hooks, and plugin fragments. | `preCompact` is notification-only; internal `config.json` is not an install target. |

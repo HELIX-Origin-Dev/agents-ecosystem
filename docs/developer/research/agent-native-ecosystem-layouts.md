@@ -3,7 +3,7 @@
 Status: canonical research  
 Last verified: 2026-11-25
 
-This module is the single source of truth for how the supported agents discover instructions, skills, agents, commands, rules, and plugins. Other documentation links here instead of repeating these facts. DCM status semantics are defined in [Dynamic Context Manager](dynamic-context-manager.md), and Copilot/package boundaries are defined in [GitHub Copilot and GitHub Packages distribution](github-copilot-and-package-distribution.md).
+This module is the single source of truth for how the supported agents discover instructions, skills, agents, commands, rules, and plugins. Other documentation links here instead of repeating these facts. DCM status semantics are defined in [Dynamic Context Manager](dynamic-context-manager.md), and Copilot boundaries are defined in [GitHub Copilot native adapter](github-copilot-native-adapter.md).
 
 ## Supported agents and surface model
 
@@ -60,7 +60,6 @@ flowchart LR
 | 25 | https://nodejs.org/api/fs.html#fspromisescp-src-dest-options | 2026-11-25 | Node `fsPromises.cp` supports recursive cross-platform copies with overwrite control. |
 | 26 | https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference | 2026-11-25 | Copilot CLI config lives under `~/.copilot` or `COPILOT_HOME`; `settings.json` is JSONC, and user `agents/`, `skills/`, `hooks/`, and `instructions/` directories are documented. |
 | 27 | https://docs.github.com/en/copilot/reference/plugin-and-marketplace-reference | 2026-11-25 | Copilot Agent Plugins use `plugin.json`, fixed `skills/NAME/SKILL.md`, root `mcp.json`, and `com.github.copilot/` extension files. |
-| 28 | https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference | 2026-11-25 | Copilot CLI install specifications do not list a custom npm registry, so GitHub Packages support is not claimed for Copilot. |
 
 ## Portable source units
 
@@ -162,7 +161,7 @@ Valid Antigravity rule triggers are `model_decision`, `always_on`, `glob`, and `
 | Local | `<project>/.github/copilot/settings.local.json` | Adapter settings fragment | Personal local override candidate; never a credential store. |
 | Plugin | `plugin.json`, `skills/NAME/SKILL.md`, `mcp.json`, `com.github.copilot/` | Adapter plugin fragments | Native Agent Plugin layout only; no fabricated component arrays. |
 
-`COPILOT_HOME` defaults to `~/.copilot` and relocates the CLI config home. Personal configuration takes precedence over repository-local configuration. Copilot internal `config.json` and installed-plugin state are read-only sources and are never installer destinations. GitHub Packages distribution is not claimed for Copilot; see [GitHub Copilot and GitHub Packages distribution](github-copilot-and-package-distribution.md).
+`COPILOT_HOME` defaults to `~/.copilot` and relocates the CLI config home. Personal configuration takes precedence over repository-local configuration. Copilot internal `config.json` and installed-plugin state are read-only sources and are never installer destinations; see [GitHub Copilot native adapter](github-copilot-native-adapter.md).
 
 ```mermaid
 flowchart TD
