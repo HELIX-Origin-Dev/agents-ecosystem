@@ -1,13 +1,12 @@
 # Developer Research
 
-This directory holds the canonical, reusable research for the portable agent ecosystem repository. Other documentation links to these modules instead of restating their facts.
+This directory holds the canonical, reusable research for the portable agent ecosystem project. Other documentation links to these modules instead of restating their facts.
 
 ## Modules
 
 | Module | Covers | Use when |
 |---|---|---|
 | [Agent native ecosystem layouts](agent-native-ecosystem-layouts.md) | Supported agents, global and project-local discovery paths, GUI/CLI surface mapping, skill and plugin formats, and OpenCode V2-only boundaries. | Choosing native destinations or adding an adapter. |
-| [GitHub repository foundations](github-repository-foundations.md) | Root community health files, README and changelog conventions, licensing, issue forms, and ignore rules. | Preparing or changing repository-level files. |
 | [Portable capability scaffolds](portable-capability-scaffolds.md) | Broad, generic, placeholder-only capability coverage and the canonical-source-to-adapter scaffold contract. | Adding capability scaffolds or reusing native fragment mappings. |
 | [Dynamic Context Manager](dynamic-context-manager.md) | DCM hardware-aware design, current-versus-cumulative status semantics, complete status surfaces, per-agent native context surfaces, and fragment boundaries. | Planning or changing context/companion behavior. |
 | [GitHub Copilot and GitHub Packages distribution](github-copilot-and-package-distribution.md) | Copilot native adapter locations and the support matrix for custom npm registries. | Adding Copilot fragments or package-distribution snippets. |

@@ -17,10 +17,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Developer documentation for architecture, adapter authoring, testing, and canonical research.
 - GitHub-ready root files: `.gitignore`, README, changelog, contributing guide, code of conduct, security policy, support guide, license, issue forms, and pull request template.
 - Root roadmap and repository-scope privacy notice with links to canonical research and support paths.
-- GitHub Pages documentation source using `just-the-docs`, a custom-domain file, a Gemfile, and a documentation landing page.
+- GitHub Pages documentation source in `docs/` using mdBook, with a custom-domain file and a documentation landing page.
 - Repository automation for GitHub Pages deployment, CodeQL analysis, dependency review, Dependabot updates, and CODEOWNERS review protection.
 - GitHub Actions workflow that prepares and publishes eligible plugin packages to GitHub Package Registry.
 - Real DCM plugin package at version `0.1.0` with OpenCode V2 server and TUI exports.
+- Built-in mdBook theme picker with Auto, Light, Rust, Coal, Navy, and Ayu themes, two-tone Rust default, persisted choices, and native sidebar navigation with search.
+- Manual workflow dispatch to delete up to 100 failed or cancelled GitHub Actions workflow runs, with an optional capped amount.
 
 ### Changed
 
@@ -29,6 +31,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - DCM exposes a complete status view through `dcm.status`, `dcm.usage`, a TUI session panel, `/dcm-status`, and a conservative footer label.
 - README documentation links now include the published site, roadmap, privacy notice, and documentation source.
 - Package documentation now distinguishes the publishable DCM package from Claude Code and Codex marketplace catalogs.
+- Documentation uses built-in mdBook themes with a two-tone Rust default, Navy dark theme, integrated search, syntax highlighting, and Mermaid rendering.
+- Documentation uses mdBook's native sidebar navigation, mobile menu, keyboard shortcuts, and default 750px content width.
+- Project documentation now contains only product-focused guides and research; site setup and repository-mechanics material is recorded outside the tracked docs.
 
 ### Fixed
 

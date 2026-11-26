@@ -2,7 +2,7 @@
 
 This module is the canonical research record for the capability layer of the portable agent ecosystem. It defines how language, SDK, shell, media, data, container, and general workflow support is represented without vendoring tools, installing dependencies, or copying agent-specific manifest keys into canonical assets.
 
-Agent discovery paths, plugin formats, and GUI/CLI sharing rules are defined in [Agent native ecosystem layouts](agent-native-ecosystem-layouts.md). Repository health files are defined in [GitHub repository foundations](github-repository-foundations.md). DCM status semantics are defined in [Dynamic Context Manager](dynamic-context-manager.md).
+Agent discovery paths, plugin formats, and GUI/CLI sharing rules are defined in [Agent native ecosystem layouts](agent-native-ecosystem-layouts.md). DCM status semantics are defined in [Dynamic Context Manager](dynamic-context-manager.md).
 
 ## Scope
 
@@ -161,7 +161,7 @@ Capability scaffolds do not define DCM status semantics; consumers link to [Dyna
 
 ## Consumer guidance
 
-- [README](../../../README.md) links to this module for the capability overview.
+- [README](https://github.com/HELIX-Origin-Dev/agents-ecosystem/blob/main/README.md) links to this module for the capability overview.
 - [Installation](../../user/installation.md) explains installer behavior, not scaffold internals.
 - [Scope and collision policy](../../user/scope-and-collision-policy.md) explains destination and overwrite behavior.
 - [Architecture](../architecture.md) explains the canonical-source-to-adapter flow.

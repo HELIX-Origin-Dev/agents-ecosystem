@@ -1,0 +1,25 @@
+[book]
+title = "Portable Agent Ecosystem"
+authors = ["HELIX-Origin-Dev"]
+description = "Documentation for the portable multi-agent ecosystem installer and adapters."
+src = "docs"
+language = "en"
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output.html]
+default-theme = "rust"
+preferred-dark-theme = "navy"
+site-url = "https://agents-ecosystem.helix-origin.club/"
+cname = "agents-ecosystem.helix-origin.club"
+git-repository-url = "https://github.com/HELIX-Origin-Dev/agents-ecosystem"
+edit-url-template = "https://github.com/HELIX-Origin-Dev/agents-ecosystem/edit/main/{path}"
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+
+[output.html.search]
+enable = true

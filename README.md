@@ -81,7 +81,6 @@ flowchart LR
 - [Adapter authoring](docs/developer/adapter-authoring.md)
 - [Testing](docs/developer/testing.md)
 - [Developer research index](docs/developer/research/README.md)
-- [GitHub repository foundations](docs/developer/research/github-repository-foundations.md)
 - [GitHub Copilot and package distribution](docs/developer/research/github-copilot-and-package-distribution.md)
 - [Dynamic Context Manager (DCM)](docs/developer/research/dynamic-context-manager.md)
 
