@@ -1,0 +1,22 @@
+{
+  "agent": "github-copilot",
+  "scope": "local",
+  "destinationBase": "PROJECT_ROOT/.github/copilot",
+  "surfaces": ["cli", "ide", "editor"],
+  "sharedConfig": true,
+  "pluginFormat": "copilot-agent-plugin",
+  "discovery": {
+    "settings": "settings.json",
+    "personalOverride": "settings.local.json",
+    "instructions": "instructions",
+    "skills": "skills",
+    "agents": "agents",
+    "prompts": "prompts",
+    "hooks": "hooks/hooks.json",
+    "plugins": "plugins"
+  },
+  "notes": [
+    "Repository-local settings are candidates; personal local overrides remain user-managed.",
+    "Hook fragments are notification-only and never replace native compaction."
+  ]
+}

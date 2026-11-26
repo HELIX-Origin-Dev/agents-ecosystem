@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "description": "Canonical asset inventory and path-based exclusions for the portable agent ecosystem installer.",
+  "categories": [
+    { "id": "global-config", "path": "src/global/config", "kind": "directory" },
+    { "id": "global-instructions", "path": "src/global/instructions", "kind": "directory" },
+    { "id": "global-skills", "path": "src/global/skills", "kind": "directory" },
+    { "id": "global-agents", "path": "src/global/agents", "kind": "directory" },
+    { "id": "global-commands", "path": "src/global/commands", "kind": "directory" },
+    { "id": "global-templates", "path": "src/global/templates", "kind": "directory" },
+    { "id": "global-plugins", "path": "src/global/plugins", "kind": "directory" },
+    { "id": "local-config", "path": "src/local/config", "kind": "directory" },
+    { "id": "local-instructions", "path": "src/local/instructions", "kind": "directory" },
+    { "id": "local-skills", "path": "src/local/skills", "kind": "directory" },
+    { "id": "local-agents", "path": "src/local/agents", "kind": "directory" },
+    { "id": "local-commands", "path": "src/local/commands", "kind": "directory" },
+    { "id": "local-templates", "path": "src/local/templates", "kind": "directory" },
+    { "id": "local-plugins", "path": "src/local/plugins", "kind": "directory" },
+    { "id": "adapters", "path": "adapters", "kind": "directory" },
+    { "id": "packages", "path": "packages", "kind": "directory", "install": false }
+  ],
+  "exclusions": [
+    { "id": "service-config", "pattern": "(^|/)service\\.json$", "reason": "credential-bearing service configuration" },
+    { "id": "environment-values", "pattern": "(^|/)\\.env", "reason": "environment value file" },
+    { "id": "npmrc", "pattern": "(^|/)\\.npmrc", "reason": "npm authentication configuration" },
+    { "id": "cookie-export", "pattern": "cookie", "reason": "cookie or credential export" },
+    { "id": "credential-export", "pattern": "credential", "reason": "credential-bearing file" },
+    { "id": "secret-file", "pattern": "secret", "reason": "secret-bearing file" },
+    { "id": "token-file", "pattern": "token", "reason": "token-bearing file" },
+    { "id": "password-file", "pattern": "password", "reason": "password-bearing file" },
+    { "id": "unpublished-packages", "pattern": "(^|/)packages/", "reason": "unpublished placeholder package skeleton" }
+  ],
+  "notes": [
+    "Exclusions are applied to logical source paths before any filesystem read.",
+    "Patterns are matched case-insensitively.",
+    "The packages category is research-only and is never installed.",
+    "The repository contains no credential-bearing values."
+  ]
+}

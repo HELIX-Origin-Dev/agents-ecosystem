@@ -1,0 +1,39 @@
+{
+  "id": "github-copilot",
+  "displayName": "GitHub Copilot",
+  "sharedConfig": true,
+  "surfaces": ["cli", "ide", "editor"],
+  "pluginFormat": "copilot-agent-plugin",
+  "scopes": {
+    "global": {
+      "root": {
+        "variable": "COPILOT_HOME",
+        "fallback": ["HOME", ".copilot"]
+      },
+      "components": [
+        { "id": "settings", "source": "adapters/github-copilot/global/settings.json", "destination": "settings.json", "transform": "copy" },
+        { "id": "instructions", "source": "src/global/instructions", "destination": "instructions", "transform": "copy" },
+        { "id": "skills", "source": "src/global/skills", "destination": "skills", "transform": "copy" },
+        { "id": "agents", "source": "src/global/agents", "destination": "agents", "transform": "copy" },
+        { "id": "prompts", "source": "src/global/commands", "destination": "prompts", "transform": "copy" },
+        { "id": "hooks", "source": "adapters/github-copilot/global/hooks.json", "destination": "hooks/hooks.json", "transform": "copy" },
+        { "id": "plugin-manifest", "source": "adapters/github-copilot/global/plugin.json", "destination": "plugins/agent-ecosystem/plugin.json", "transform": "plugin-manifest" },
+        { "id": "mcp", "source": "adapters/github-copilot/global/mcp.json", "destination": "plugins/agent-ecosystem/mcp.json", "transform": "copy" }
+      ]
+    },
+    "local": {
+      "root": { "projectRelative": ".github/copilot" },
+      "components": [
+        { "id": "settings", "source": "adapters/github-copilot/local/settings.json", "destination": "settings.json", "transform": "copy" },
+        { "id": "settings-local", "source": "adapters/github-copilot/local/settings.local.json", "destination": "settings.local.json", "transform": "copy" },
+        { "id": "instructions", "source": "src/local/instructions", "destination": "instructions", "transform": "copy" },
+        { "id": "skills", "source": "src/local/skills", "destination": "skills", "transform": "copy" },
+        { "id": "agents", "source": "src/local/agents", "destination": "agents", "transform": "copy" },
+        { "id": "prompts", "source": "src/local/commands", "destination": "prompts", "transform": "copy" },
+        { "id": "hooks", "source": "adapters/github-copilot/local/hooks.json", "destination": "hooks/hooks.json", "transform": "copy" },
+        { "id": "plugin-manifest", "source": "adapters/github-copilot/local/plugin.json", "destination": "plugins/agent-ecosystem/plugin.json", "transform": "plugin-manifest" },
+        { "id": "mcp", "source": "adapters/github-copilot/local/mcp.json", "destination": "plugins/agent-ecosystem/mcp.json", "transform": "copy" }
+      ]
+    }
+  }
+}

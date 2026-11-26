@@ -1,0 +1,13 @@
+{
+  "agent": "cursor",
+  "scope": "local",
+  "destinationBase": "PROJECT_ROOT/.cursor",
+  "surfaces": ["editor", "cli"],
+  "sharedConfig": true,
+  "pluginFormat": "cursor-plugin",
+  "notes": [
+    "Editor and CLI surfaces share one project tree.",
+    "Rules are generated in .mdc format.",
+    "Rules are bundled inside the plugin folder to avoid duplicate installs."
+  ]
+}

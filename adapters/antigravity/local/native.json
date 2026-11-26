@@ -1,0 +1,17 @@
+{
+  "id": "antigravity",
+  "displayName": "Google Antigravity",
+  "scope": "local",
+  "discovery": {
+    "plugins": ".agents/plugins",
+    "rules": ".agents/rules",
+    "skills": ".agents/skills",
+    "agents": ".agents/agents",
+    "commands": ".agents/commands",
+    "templates": ".agents/templates"
+  },
+  "notes": [
+    "Paths are expressed relative to the project root and are resolved at install time.",
+    "Global and project-local fragments share the same canonical source assets without duplicating full trees."
+  ]
+}

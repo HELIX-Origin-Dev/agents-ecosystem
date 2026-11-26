@@ -1,0 +1,22 @@
+{
+  "agent": "github-copilot",
+  "scope": "global",
+  "destinationBase": "COPILOT_HOME",
+  "surfaces": ["cli", "ide", "editor"],
+  "sharedConfig": true,
+  "pluginFormat": "copilot-agent-plugin",
+  "discovery": {
+    "settings": "settings.json",
+    "instructions": "instructions",
+    "skills": "skills",
+    "agents": "agents",
+    "prompts": "prompts",
+    "hooks": "hooks/hooks.json",
+    "plugins": "plugins"
+  },
+  "notes": [
+    "Settings are JSONC and are emitted as a fragment candidate, never merged automatically.",
+    "Internal config.json and installed-plugin state are read-only sources.",
+    "Personal configuration takes precedence over repository-local configuration."
+  ]
+}

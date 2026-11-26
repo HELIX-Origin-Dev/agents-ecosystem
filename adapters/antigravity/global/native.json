@@ -1,0 +1,17 @@
+{
+  "id": "antigravity",
+  "displayName": "Google Antigravity",
+  "scope": "global",
+  "discovery": {
+    "plugins": ".gemini/config/plugins",
+    "rules": ".gemini/config/rules",
+    "skills": ".gemini/config/skills",
+    "agents": ".gemini/config/agents",
+    "commands": ".gemini/config/commands",
+    "templates": ".gemini/config/templates"
+  },
+  "notes": [
+    "Paths are expressed relative to HOME and are resolved at install time.",
+    "Global and project-local fragments share the same canonical source assets without duplicating full trees."
+  ]
+}

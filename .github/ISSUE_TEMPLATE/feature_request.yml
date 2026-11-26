@@ -1,0 +1,82 @@
+name: Feature request
+description: Propose new behavior, a new adapter, or a documentation improvement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the proposal. Keep examples placeholder-only; never include secret values, webhook URLs, cookie exports, environment values, usernames, passwords, or tokens.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem or limitation are you trying to solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the change you would like.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches did you consider?
+    validations:
+      required: false
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the repository would change?
+      options:
+        - installer
+        - adapter
+        - canonical asset
+        - documentation
+        - repository tooling
+        - other
+    validations:
+      required: true
+  - type: input
+    id: agents
+    attributes:
+      label: Affected agents
+      description: Comma-separated agent IDs, or "all".
+      placeholder: opencode, claude-code, codex, cursor, antigravity
+    validations:
+      required: false
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope impact
+      description: Which scopes would be affected?
+      options:
+        - global
+        - local
+        - mixed
+        - not applicable
+    validations:
+      required: true
+  - type: textarea
+    id: native-docs
+    attributes:
+      label: Native documentation
+      description: Link to official documentation supporting any new native path or format.
+    validations:
+      required: false
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Constraints
+      options:
+        - label: The change keeps one canonical source of truth without duplicated full asset trees.
+          required: true
+        - label: The change does not port the OpenCode V2-only plugin to other agents.
+          required: true
+        - label: The change preserves skip-by-default collision handling and backups.
+          required: true

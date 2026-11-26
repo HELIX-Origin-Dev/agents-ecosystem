@@ -1,0 +1,13 @@
+{
+  "agent": "opencode",
+  "scope": "global",
+  "destinationBase": "OPENCODE_CONFIG_HOME",
+  "surfaces": ["cli", "gui"],
+  "sharedConfig": true,
+  "pluginFormat": "opencode-config",
+  "notes": [
+    "Config paths use install-time template variables.",
+    "CLI settings are written once at global scope.",
+    "DCM is the OpenCode V2 dynamic-context-manager adapter; native compaction remains authoritative."
+  ]
+}

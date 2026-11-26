@@ -1,0 +1,11 @@
+{
+  "cli": ["opencode-subagent-statusline@2.1.1"],
+  "gui": ["./gui-experimental"],
+  "localDirectories": ["./plugins/dynamic-context-manager"],
+  "notes": [
+    "CLI plugin packages are declared in the global cli.json.",
+    "Desktop GUI plugins use the experimental ./gui-experimental export.",
+    "Configured local plugin paths must point to directories.",
+    "DCM is the hardware-aware dynamic-context-manager enhancement; native OpenCode compaction remains authoritative."
+  ]
+}

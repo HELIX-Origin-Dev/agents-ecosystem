@@ -1,0 +1,6 @@
+{
+  "name": "agent-ecosystem",
+  "version": "0.0.0",
+  "description": "Portable agent ecosystem skills restored from the canonical repository.",
+  "skills": ["./skills"]
+}

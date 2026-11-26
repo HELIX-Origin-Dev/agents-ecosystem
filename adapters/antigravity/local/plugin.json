@@ -1,0 +1,7 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "agent-ecosystem",
+  "version": "0.0.0",
+  "description": "Unpublished local placeholder for the portable agent ecosystem.",
+  "skills": []
+}

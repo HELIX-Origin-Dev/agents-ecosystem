@@ -1,0 +1,53 @@
+title: Portable Agent Ecosystem
+description: Documentation for the portable multi-agent ecosystem installer and adapters.
+baseurl: ""
+url: "https://agents-ecosystem.helix-origin.club"
+repository: HELIX-Origin-Dev/agents-ecosystem
+remote_theme: just-the-docs/just-the-docs
+
+plugins:
+  - jekyll-remote-theme
+
+permalink: pretty
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+
+search_enabled: true
+heading_anchors: true
+enable_copy_code_button: true
+
+mermaid:
+  version: "9.1.6"
+
+nav_enabled: true
+nav_error_report: true
+back_to_top: true
+back_to_top_text: "Back to top"
+
+aux_links:
+  "Repository":
+    - "https://github.com/HELIX-Origin-Dev/agents-ecosystem"
+  "Roadmap":
+    - "https://github.com/HELIX-Origin-Dev/agents-ecosystem/blob/main/ROADMAP.md"
+  "Privacy":
+    - "https://github.com/HELIX-Origin-Dev/agents-ecosystem/blob/main/PRIVACY.md"
+
+nav_external_links:
+  - title: GitHub repository
+    url: https://github.com/HELIX-Origin-Dev/agents-ecosystem
+
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/HELIX-Origin-Dev/agents-ecosystem"
+gh_edit_branch: "main"
+gh_edit_source: "docs"
+gh_edit_view_mode: "edit"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock

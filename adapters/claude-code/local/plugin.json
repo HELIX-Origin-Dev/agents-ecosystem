@@ -1,0 +1,8 @@
+{
+  "name": "agent-ecosystem-local",
+  "version": "0.0.0",
+  "description": "Project-local portable agent ecosystem components.",
+  "skills": ["./skills"],
+  "agents": ["./agents"],
+  "commands": ["./commands"]
+}

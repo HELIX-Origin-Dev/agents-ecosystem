@@ -1,0 +1,41 @@
+{
+  "id": "opencode",
+  "displayName": "OpenCode V2",
+  "sharedConfig": true,
+  "surfaces": ["cli", "gui"],
+  "pluginFormat": "opencode-config",
+  "scopes": {
+    "global": {
+      "root": {
+        "variable": "OPENCODE_CONFIG_HOME",
+        "fallback": ["HOME", ".config", "opencode"]
+      },
+      "components": [
+        { "id": "opencode-config", "source": "src/global/config/opencode.jsonc", "destination": "opencode.jsonc", "transform": "opencode-config" },
+        { "id": "cli-config", "source": "src/global/config/cli.json", "destination": "cli.json", "transform": "copy" },
+        { "id": "shell-strategies", "source": "src/global/config/shell-strategies.md", "destination": "shell-strategies.md", "transform": "copy" },
+        { "id": "instructions", "source": "src/global/instructions", "destination": "instructions", "transform": "copy" },
+        { "id": "skills", "source": "src/global/skills", "destination": "skills", "transform": "copy" },
+        { "id": "agents", "source": "src/global/agents", "destination": "agents", "transform": "copy" },
+        { "id": "commands", "source": "src/global/commands", "destination": "commands", "transform": "copy" },
+        { "id": "templates", "source": "src/global/templates", "destination": "templates", "transform": "copy" },
+        { "id": "dynamic-context-manager", "source": "src/global/plugins/dynamic-context-manager", "destination": "plugins/dynamic-context-manager", "transform": "copy", "exclusiveTo": "opencode" },
+        { "id": "plugin-manifest", "source": "adapters/opencode/global/plugins.json", "destination": "plugins/manifest.json", "transform": "copy" }
+      ]
+    },
+    "local": {
+      "root": { "projectRelative": ".opencode" },
+      "components": [
+        { "id": "opencode-config", "source": "src/global/config/opencode.jsonc", "destination": "opencode.jsonc", "transform": "opencode-config" },
+        { "id": "shell-strategies", "source": "src/global/config/shell-strategies.md", "destination": "shell-strategies.md", "transform": "copy" },
+        { "id": "instructions", "source": "src/local/instructions", "destination": "instructions", "transform": "copy" },
+        { "id": "skills", "source": "src/local/skills", "destination": "skills", "transform": "copy" },
+        { "id": "agents", "source": "src/local/agents", "destination": "agents", "transform": "copy" },
+        { "id": "commands", "source": "src/local/commands", "destination": "commands", "transform": "copy" },
+        { "id": "templates", "source": "src/local/templates", "destination": "templates", "transform": "copy" },
+        { "id": "dynamic-context-manager", "source": "src/global/plugins/dynamic-context-manager", "destination": "plugins/dynamic-context-manager", "transform": "copy", "exclusiveTo": "opencode" },
+        { "id": "plugin-manifest", "source": "adapters/opencode/local/plugins.json", "destination": "plugins/manifest.json", "transform": "copy" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "hooks": {
+    "preCompact": [
+      {
+        "name": "dcm-notice",
+        "command": "echo DCM preCompact notification; native compaction remains authoritative"
+      }
+    ]
+  }
+}

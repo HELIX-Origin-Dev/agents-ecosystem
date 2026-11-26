@@ -1,0 +1,92 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "formatter": true,
+  "websearch": {
+    "provider": "random"
+  },
+  "instructions": [
+    "./shell-strategies.md",
+    "./instructions/*.md"
+  ],
+  // Native V2 compaction replaces DCP. A 60% buffer starts compaction around
+  // 80k tokens on a 200k window, leaving margin below the 90k hard ceiling.
+  // The 8000-token tail targets a sub-10k recent context beside the summary.
+  "compaction": {
+    "auto": true,
+    "background": false,
+    "keep": { "tokens": 8000 },
+    "buffer": "60%"
+  },
+  // Shell commands not matched below are allowed. Broad git/gh ask rules come
+  // before narrow read-only allows because the last matching rule wins.
+  // Policy denials remain hard blocks regardless of these permissions.
+  "permissions": [
+    { "action": "shell", "resource": "*", "effect": "allow" },
+
+    // Commands that can mutate the repo or remote state require authorization.
+    { "action": "shell", "resource": "git *", "effect": "ask" },
+    { "action": "shell", "resource": "gh *", "effect": "ask" },
+
+    // Read-only git/gh inspection is always allowed because it cannot mutate state.
+    { "action": "shell", "resource": "git status *", "effect": "allow" },
+    { "action": "shell", "resource": "git diff *", "effect": "allow" },
+    { "action": "shell", "resource": "git log *", "effect": "allow" },
+    { "action": "shell", "resource": "git show *", "effect": "allow" },
+    { "action": "shell", "resource": "git ls-files *", "effect": "allow" },
+    { "action": "shell", "resource": "git check-ignore *", "effect": "allow" },
+    { "action": "shell", "resource": "git blame *", "effect": "allow" },
+    { "action": "shell", "resource": "git grep *", "effect": "allow" },
+    { "action": "shell", "resource": "git rev-parse *", "effect": "allow" },
+    { "action": "shell", "resource": "git remote -v", "effect": "allow" },
+    { "action": "shell", "resource": "gh secret list*", "effect": "allow" },
+    { "action": "shell", "resource": "gh auth status*", "effect": "allow" },
+    { "action": "shell", "resource": "gh repo view*", "effect": "allow" },
+    { "action": "shell", "resource": "gh run list*", "effect": "allow" },
+    { "action": "shell", "resource": "gh run view*", "effect": "allow" },
+    { "action": "shell", "resource": "gh workflow list*", "effect": "allow" },
+    { "action": "shell", "resource": "gh workflow view*", "effect": "allow" },
+    { "action": "shell", "resource": "gh variable list*", "effect": "allow" },
+    { "action": "shell", "resource": "gh variable get*", "effect": "allow" },
+    { "action": "shell", "resource": "gh issue list*", "effect": "allow" },
+    { "action": "shell", "resource": "gh issue view*", "effect": "allow" },
+    { "action": "shell", "resource": "gh pr list*", "effect": "allow" },
+    { "action": "shell", "resource": "gh pr view*", "effect": "allow" },
+    { "action": "shell", "resource": "gh pr checks*", "effect": "allow" },
+    { "action": "shell", "resource": "gh release list*", "effect": "allow" },
+    { "action": "shell", "resource": "gh release view*", "effect": "allow" },
+    { "action": "shell", "resource": "gh label list*", "effect": "allow" },
+    { "action": "shell", "resource": "gh org list*", "effect": "allow" },
+    { "action": "shell", "resource": "gh status*", "effect": "allow" },
+    { "action": "shell", "resource": "gh config list*", "effect": "allow" },
+    { "action": "shell", "resource": "gh config get *", "effect": "allow" },
+    { "action": "shell", "resource": "gh help*", "effect": "allow" },
+    { "action": "shell", "resource": "gh alias list*", "effect": "allow" },
+
+    // Remote or destructive commands require fresh authorization.
+    { "action": "shell", "resource": "ssh *", "effect": "ask" },
+    { "action": "shell", "resource": "npm publish*", "effect": "ask" },
+    { "action": "shell", "resource": "npm unpublish*", "effect": "ask" },
+    { "action": "shell", "resource": "docker push*", "effect": "ask" },
+    { "action": "shell", "resource": "kubectl delete*", "effect": "ask" },
+
+    // Custom authorization action used by the global DCM plugin.
+    { "action": "opencode-compaction-config", "resource": "*", "effect": "ask" }
+  ],
+  "policies": [
+    // Only GUI-blocking commands are hard-denied. Base commands such as
+    // python, node, npm, cat, powershell, and cmd use the permissions above.
+    { "action": "tool.use", "resource": "shell:vim *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:nvim *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:vi *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:nano *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:emacs *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:less *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:more *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:top *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:htop *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:watch *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:tail -f *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:docker attach *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:kubectl exec -it *", "effect": "deny" }
+  ]
+}

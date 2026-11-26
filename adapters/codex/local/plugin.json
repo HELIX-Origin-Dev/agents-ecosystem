@@ -1,0 +1,6 @@
+{
+  "name": "agent-ecosystem-local",
+  "version": "0.0.0",
+  "description": "Project-local portable agent ecosystem skills.",
+  "skills": ["./skills"]
+}

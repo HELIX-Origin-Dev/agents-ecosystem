@@ -1,0 +1,13 @@
+{
+  "agent": "codex",
+  "scope": "global",
+  "destinationBase": "CODEX_HOME",
+  "surfaces": ["cli", "app", "ide"],
+  "sharedConfig": true,
+  "pluginFormat": "codex-plugin",
+  "notes": [
+    "CODEX_HOME is resolved at install time and never hardcoded.",
+    "CLI, App, and IDE surfaces share the same Codex home.",
+    "The plugin uses a root plugin.json."
+  ]
+}

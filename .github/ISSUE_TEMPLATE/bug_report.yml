@@ -1,0 +1,77 @@
+name: Bug report
+description: Report a reproducible problem with the installer, manifests, or documentation.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Do not include secret values, webhook URLs, cookie exports, environment values, usernames, passwords, or tokens.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+      placeholder: A clear and concise description of the defect.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Include the exact command, selected agents, scopes, and dry-run output with sensitive details removed.
+      placeholder: |
+        node scripts/install.mjs --dry-run --agent ... --scope ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead?
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Affected agent
+      description: Agent ID such as opencode, claude-code, codex, cursor, or antigravity.
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: Scope used when the issue occurred.
+      options:
+        - global
+        - local
+        - mixed
+        - not applicable
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Platform
+      description: Product and platform name, without machine-specific absolute paths.
+      placeholder: Windows, macOS, or Linux
+    validations:
+      required: false
+  - type: textarea
+    id: checks
+    attributes:
+      label: Validation performed
+      description: Which checks did you run and what were the results?
+      placeholder: |
+        node --check scripts/install.mjs
+        node scripts/install.mjs --dry-run --agent all --scope global
+    validations:
+      required: false

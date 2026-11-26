@@ -1,0 +1,13 @@
+{
+  "agent": "claude-code",
+  "scope": "global",
+  "destinationBase": "HOME/.claude",
+  "surfaces": ["cli", "desktop", "vscode", "jetbrains"],
+  "sharedConfig": true,
+  "pluginFormat": "claude-plugin",
+  "notes": [
+    "All surfaces read one global configuration tree.",
+    "The native plugin manifest is .claude-plugin/plugin.json.",
+    "Components are bundled inside the plugin folder to avoid duplicate installs."
+  ]
+}

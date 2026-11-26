@@ -1,0 +1,13 @@
+{
+  "agent": "codex",
+  "scope": "local",
+  "destinationBase": "PROJECT_ROOT/.codex",
+  "surfaces": ["cli", "app", "ide"],
+  "sharedConfig": true,
+  "pluginFormat": "codex-plugin",
+  "notes": [
+    "Project-local instructions are generated as AGENTS.md.",
+    "CLI, App, and IDE surfaces share the same project tree.",
+    "The plugin uses a root plugin.json."
+  ]
+}

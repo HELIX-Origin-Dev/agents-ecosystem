@@ -1,0 +1,9 @@
+{
+  "name": "dynamic-context-manager",
+  "displayName": "DCM",
+  "description": "Unpublished placeholder plugin skeleton for hardware-aware native context enhancement.",
+  "version": "0.0.0",
+  "distribution": "native-plugin-with-placeholder-marketplace-metadata",
+  "marketplaceAgents": ["claude-code", "codex"],
+  "components": []
+}

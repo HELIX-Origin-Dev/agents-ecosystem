@@ -1,0 +1,37 @@
+# Local process state
+HANDOFF.md
+.opencode/
+*.local.md
+
+# Credential-bearing files
+service.json
+.env
+.env.*
+*.cookie
+cookies*.txt
+cookies*.json
+credentials*.json
+credentials*.txt
+secrets*.json
+secrets*.txt
+tokens*.json
+tokens*.txt
+passwords*.txt
+
+# Generated install artifacts
+*.bak.*
+install-backups/
+install-backups/**
+
+# Node and runtime caches
+node_modules/
+.npm/
+.cache/
+*.log
+
+# Editor and OS metadata
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini

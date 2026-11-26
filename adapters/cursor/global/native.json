@@ -1,0 +1,13 @@
+{
+  "agent": "cursor",
+  "scope": "global",
+  "destinationBase": "HOME/.cursor/plugins/local",
+  "surfaces": ["editor", "cli"],
+  "sharedConfig": true,
+  "pluginFormat": "cursor-plugin",
+  "notes": [
+    "Editor and CLI surfaces share skills, rules, and plugin discovery.",
+    "Global user rules are managed in the Customize UI and are not created as files.",
+    "Rules are bundled inside the plugin folder."
+  ]
+}

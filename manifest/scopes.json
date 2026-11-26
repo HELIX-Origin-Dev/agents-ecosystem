@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "description": "Scope declarations and install-time variable resolution rules.",
+  "scopes": {
+    "global": {
+      "label": "Global",
+      "description": "Install into the agent-specific user home directory.",
+      "projectRequired": false,
+      "environment": ["OPENCODE_CONFIG_HOME", "XDG_CONFIG_HOME", "CODEX_HOME", "COPILOT_HOME"]
+    },
+    "local": {
+      "label": "Local",
+      "description": "Install into project-relative native folders.",
+      "projectRequired": true,
+      "environment": []
+    }
+  },
+  "variables": {
+    "OPENCODE_CONFIG_HOME": {
+      "description": "OpenCode config home; resolved before transformation and never written into tracked config.",
+      "environment": "OPENCODE_CONFIG_HOME",
+      "fallback": ["HOME", ".config", "opencode"],
+      "xdgFallback": ["XDG_CONFIG_HOME", "opencode"]
+    },
+    "CODEX_HOME": {
+      "description": "Codex home; resolved before transformation and never written into tracked config.",
+      "environment": "CODEX_HOME",
+      "fallback": ["HOME", ".codex"]
+    },
+    "COPILOT_HOME": {
+      "description": "GitHub Copilot CLI config home; resolved before transformation and never written into tracked config.",
+      "environment": "COPILOT_HOME",
+      "fallback": ["HOME", ".copilot"]
+    },
+    "HOME": {
+      "description": "Current user home directory from the runtime.",
+      "runtime": "os.homedir"
+    },
+    "PROJECT_ROOT": {
+      "description": "Project root supplied by --project or the current working directory.",
+      "runtime": "process.cwd"
+    }
+  },
+  "surfacePolicy": {
+    "sharedConfigWrites": 1,
+    "description": "Each agent and scope produces one native tree regardless of the number of reported surfaces."
+  },
+  "hardwareProfile": {
+    "description": "DCM derives guidance from built-in Node os signals only.",
+    "signals": ["availableParallelism", "cpus", "totalmem", "freemem", "platform", "arch", "machine", "loadavg"],
+    "caveats": ["os.loadavg() is always [0, 0, 0] on Windows.", "Native compaction remains authoritative and no UI responsiveness is guaranteed."]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@namespace/dynamic-context-manager",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Unpublished placeholder package skeleton for the hardware-aware native context enhancement.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/helix-origin/placeholder-dynamic-context-manager-repo.git",
+    "directory": "packages/dynamic-context-manager"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "README.md",
+    "plugin.json"
+  ]
+}

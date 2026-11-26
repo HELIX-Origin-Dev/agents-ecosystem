@@ -1,0 +1,13 @@
+{
+  "agent": "opencode",
+  "scope": "local",
+  "destinationBase": "PROJECT_ROOT/.opencode",
+  "surfaces": ["cli", "gui"],
+  "sharedConfig": true,
+  "pluginFormat": "opencode-config",
+  "notes": [
+    "Project-local config uses the same template variables as global config.",
+    "CLI settings remain global-only.",
+    "DCM is the OpenCode V2 dynamic-context-manager adapter; native compaction remains authoritative."
+  ]
+}
